@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Yeseva+One&family=Karla:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  @font-face { font-family: 'S2G Moon'; src: url('./S2G-moon.ttf') format('truetype'); font-weight: 400 900; font-display: swap; unicode-range: U+0-4EFC, U+4EFE-4F5F, U+4F61-5360, U+5362-5563, U+5565-57D4, U+57D6-5975, U+5977-71D8, U+71DA-8524, U+8526-8C92, U+8C94-9EB4, U+9EB6-10FFFF; }
+  @font-face { font-family: 'Alloha'; src: url('./Alloha.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+  html, body { margin: 0; padding: 0; background: #F6F3E8; }
+  a { color: #9E2B20; }
+  a:hover { color: #04492C; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="background:#F6F3E8;color:#35322A;font-family:Karla,sans-serif;min-height:100vh">
+
+  <div style="background:#04492C;border-bottom:1px solid rgba(246,243,232,.3)">
+    <nav style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:16px 28px;max-width:1080px;margin:0 auto;padding:15px 32px">
+        <a href="./Accueil.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Accueil</a>
+        <a href="./Visiter-Taipei.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Visiter Taipei</a>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;position:relative;display:inline-block;color:#FBF9F1;padding-bottom:12px">Manger<svg viewBox="0 0 120 12" preserveAspectRatio="none" style="position:absolute;left:-3px;bottom:0;width:calc(100% + 6px);height:9px"><path d="M2 7 C 18 3.2, 34 9.4, 52 5.6 C 70 2.2, 88 8.8, 104 4.4 C 110 2.9, 115 4.6, 118 5.4" fill="none" stroke="#C1512A" stroke-width="2.6" stroke-linecap="round" /></svg></span>
+        <a href="./Moi-et-Taiwan.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Moi et Taiwan</a>
+        <a href="./La-culture.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">La culture</a>
+        <a href="./Conseils-pratiques.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Conseils pratiques</a>
+        <a href="./Galerie-photos.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Galerie photos</a>
+      </nav>
+  </div>
+
+  <div style="background:#04492C;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:12px 32px">
+    <div style="display:flex;align-items:center;gap:16px">
+      <span style="background:#F6F3E8;color:#04492C;font-size:12px;font-weight:700;letter-spacing:.12em;padding:4px 10px">02</span>
+      <span style="font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#F6F3E8">Manger · <span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;letter-spacing:.12em">吃什麼</span></span>
+    </div>
+    <span style="font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#D4CDB8">Taipei · guide personnel</span>
+  </div>
+
+  <div style="padding:28px 32px 0">
+    <div style="display:flex;justify-content:center">
+      <a href="./Accueil.dc.html" style="text-decoration:none;display:block;font-size:21px">
+        <dc-import name="Logo" hint-size="135px,135px"></dc-import>
+      </a>
+    </div>
+    
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:44px 32px 0">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;border-bottom:3px solid #9E2B20;padding-bottom:22px">
+      <div>
+        <div style="font-family:Alloha,serif;font-size:60px;line-height:1.05;color:#16150F;text-transform:uppercase">Manger</div>
+        <p style="font-size:17px;line-height:1.6;color:#35322A;margin:18px 0 0;max-width:56ch;text-wrap:pretty">On mange dehors, tout le temps, et pour peu. Range l'idée du restaurant et suis les files d'attente. Ci-dessous : par moment de la journée, ce qu'il faut commander, et le mot à montrer si le chinois manque.</p>
+      </div>
+      <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:900;font-size:34px;letter-spacing:.08em;color:#04492C;white-space:nowrap">吃什麼</div>
+    </div>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:36px 32px 0;display:flex;flex-direction:column;gap:26px">
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:22px;display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px">
+      <div style="position:relative;height:250px;min-width:0;overflow:hidden;border:1px solid #CFCABB">
+        <image-slot id="m-petitdej" shape="rect" placeholder="photo — petit-déjeuner taïwanais"></image-slot>
+      </div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+          <div style="font-family:Alloha,serif;font-size:40px;line-height:1.05;color:#16150F;text-transform:uppercase">Le matin</div>
+          <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:900;font-size:26px;color:#04492C;letter-spacing:.08em">早餐</div>
+        </div>
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6A6656;margin-top:12px">6 h – 10 h · ça ferme tôt</div>
+        <p style="font-size:17px;line-height:1.6;margin:16px 0 0;max-width:60ch;text-wrap:pretty">Le vrai repas de la journée. Lait de soja chaud ou glacé, galette d'œuf roulée, beignet de pâte trempé, petit pain au bœuf. Les boutiques de quartier valent les adresses célèbres, et il n'y a jamais la queue.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px">
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">豆漿</span> <span style="font-size:14px">lait de soja</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">蛋餅</span> <span style="font-size:14px">galette à l'œuf</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">飯糰</span> <span style="font-size:14px">boulette de riz</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">小籠包</span> <span style="font-size:14px">raviolis vapeur</span></div>
+        </div>
+        <div style="border:1px dashed #CFCABB;background:#F6F3E8;padding:14px 16px;margin-top:18px">
+          <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656">Mes adresses — à compléter</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:22px;display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px">
+      <div style="position:relative;height:250px;min-width:0;overflow:hidden;border:1px solid #CFCABB">
+        <image-slot id="m-nouilles" shape="rect" placeholder="photo — nouilles au bœuf"></image-slot>
+      </div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+          <div style="font-family:Alloha,serif;font-size:40px;line-height:1.05;color:#16150F;text-transform:uppercase">Le midi</div>
+          <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:900;font-size:26px;color:#04492C;letter-spacing:.08em">午餐</div>
+        </div>
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6A6656;margin-top:12px">Cantine, bol unique, service rapide</div>
+        <p style="font-size:17px;line-height:1.6;margin:16px 0 0;max-width:60ch;text-wrap:pretty">Un bol et c'est tout : nouilles au bœuf mijoté, riz au porc braisé, boulettes de poisson. On coche sa commande sur une fiche posée sur la table, on la donne au comptoir. Le thé glacé est souvent gratuit.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px">
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">牛肉麵</span> <span style="font-size:14px">nouilles au bœuf</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">滷肉飯</span> <span style="font-size:14px">riz au porc braisé</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">燙青菜</span> <span style="font-size:14px">légumes blanchis</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">不要香菜</span> <span style="font-size:14px">sans coriandre</span></div>
+        </div>
+        <div style="border:1px dashed #CFCABB;background:#F6F3E8;padding:14px 16px;margin-top:18px">
+          <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656">Mes adresses — à compléter</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:22px;display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px">
+      <div style="position:relative;height:250px;min-width:0;overflow:hidden;border:1px solid #CFCABB">
+        <image-slot id="m-marche" shape="rect" placeholder="photo — marché de nuit"></image-slot>
+      </div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+          <div style="font-family:Alloha,serif;font-size:40px;line-height:1.05;color:#16150F;text-transform:uppercase">La nuit</div>
+          <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:900;font-size:26px;color:#04492C;letter-spacing:.08em">夜市</div>
+        </div>
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6A6656;margin-top:12px">18 h – minuit · viens avec de la monnaie</div>
+        <p style="font-size:17px;line-height:1.6;margin:16px 0 0;max-width:60ch;text-wrap:pretty">Les marchés de nuit se mangent en marchant, un stand après l'autre, à deux ou trois pour tout goûter. Les plus grands sont les plus touristiques : les petits marchés de quartier sont meilleurs et moins chers.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px">
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">胡椒餅</span> <span style="font-size:14px">galette au poivre</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">蔥油餅</span> <span style="font-size:14px">crêpe à la ciboule</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">芒果冰</span> <span style="font-size:14px">glace pilée mangue</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">臭豆腐</span> <span style="font-size:14px">tofu fermenté</span></div>
+        </div>
+        <div style="border:1px dashed #CFCABB;background:#F6F3E8;padding:14px 16px;margin-top:18px">
+          <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656">Mes adresses — à compléter</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:22px;display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px">
+      <div style="position:relative;height:250px;min-width:0;overflow:hidden;border:1px solid #CFCABB">
+        <image-slot id="m-the" shape="rect" placeholder="photo — thé, bubble tea"></image-slot>
+      </div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+          <div style="font-family:Alloha,serif;font-size:40px;line-height:1.05;color:#16150F;text-transform:uppercase">Boire</div>
+          <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:900;font-size:26px;color:#04492C;letter-spacing:.08em">喝的</div>
+        </div>
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6A6656;margin-top:12px">Thé à emporter, salon de thé, bière fraîche</div>
+        <p style="font-size:17px;line-height:1.6;margin:16px 0 0;max-width:60ch;text-wrap:pretty">Dans une boutique de thé à emporter, on choisit le sucre et la glace : demande <span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">微糖微冰</span> (peu sucré, peu de glace) et tu bois taïwanais. Pour le vrai thé, monte à Maokong et prends une théière. Le soir, une Taiwan Beer au 7-Eleven du coin fait très bien l'affaire.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px">
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">珍珠奶茶</span> <span style="font-size:14px">thé au lait, perles</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">烏龍茶</span> <span style="font-size:14px">oolong</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">冬瓜檸檬</span> <span style="font-size:14px">courge-citron</span></div>
+          <div style="border:1px solid #CFCABB;padding:10px 12px;background:#F6F3E8"><span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:19px;color:#04492C">台灣啤酒</span> <span style="font-size:14px">Taiwan Beer</span></div>
+        </div>
+        <div style="border:1px dashed #CFCABB;background:#F6F3E8;padding:14px 16px;margin-top:18px">
+          <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656">Mes adresses — à compléter</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:52px 32px 0">
+    <div style="background:#04492C;padding:34px 32px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end">
+      <div>
+        <div style="font-family:Alloha,serif;font-size:30px;color:#F6F3E8;text-transform:uppercase;line-height:1.1">Trois règles</div>
+        <p style="font-size:17px;line-height:1.6;color:#F6F3E8;margin:14px 0 0;max-width:60ch">La file d'attente est un bon signe. Un menu sans photo ni anglais est un meilleur signe. Et si le stand ne fait qu'un seul plat, prends-le.</p>
+      </div>
+      <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:500;font-size:16px;color:#D4CDB8;letter-spacing:.1em;white-space:nowrap">排隊就對了</div>
+    </div>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:48px 32px 60px">
+    <div style="height:14px;background-color:#F6F3E8;background-image:repeating-linear-gradient(90deg,#16150f 0 1px,transparent 1px 7px),linear-gradient(0deg,#9e2b20 0 14px,transparent 14px)"></div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:16px">
+      <a href="./Visiter-Taipei.dc.html" style="font-size:11px;letter-spacing:.28em;text-transform:uppercase">← Visiter Taipei</a>
+      <a href="./Moi-et-Taiwan.dc.html" style="font-size:11px;letter-spacing:.28em;text-transform:uppercase">Moi et Taiwan →</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #f6f3e8; color: #16150f; }
+  a { color: #9e2b20; }
+  a:hover { color: #04492c; }
+</style>
+</helmet>
+
+<div style="max-width: 1120px; margin: 0 auto; padding: 72px 56px 96px; font-family: 'Space Grotesk', system-ui, sans-serif; display: flex; flex-direction: column; gap: 64px;">
+
+  <header style="display: flex; flex-direction: column; gap: 18px;">
+    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #6a6656;">Design system · v1 · août 2026</div>
+    <h1 style="margin: 0; font-family: 'Gloock', serif; font-size: 64px; line-height: 1.05; letter-spacing: 0; text-transform: uppercase; color: #16150f;">Made in Taiwan</h1>
+    <div style="width: 320px; height: 3px; background: #9e2b20;"></div>
+    <div style="font-family: 'Noto Sans TC', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: .08em; color: #04492c;">臺灣製造</div>
+    <p style="margin: 8px 0 0; max-width: 62ch; font-size: 17px; line-height: 1.65; color: #35322a; text-wrap: pretty;">Petite marque taïwanaise, rétro mesuré : enseigne émaillée, épicerie de quartier. Français et chinois traditionnel cohabitent, le chinois double le message clé — jamais tout le texte.</p>
+  </header>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #cfcabb; padding-bottom: 10px;">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-size: 30px; letter-spacing: 0; text-transform: uppercase;">01 · Couleurs</h2>
+      <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #6a6656;">顏色</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 130px; background: #04492c;"></div>
+        <div style="font-size: 13px; font-weight: 500;">Vert enseigne</div>
+        <div style="font-size: 12px; color: #6a6656;">#04492C · principal</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 130px; background: #9e2b20;"></div>
+        <div style="font-size: 13px; font-weight: 500;">Rouge laqué</div>
+        <div style="font-size: 12px; color: #6a6656;">#9E2B20 · accent</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 130px; background: #c1512a;"></div>
+        <div style="font-size: 13px; font-weight: 500;">Brique orangée</div>
+        <div style="font-size: 12px; color: #6a6656;">#C1512A · accent 2</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 130px; background: #16150f;"></div>
+        <div style="font-size: 13px; font-weight: 500;">Encre</div>
+        <div style="font-size: 12px; color: #6a6656;">#16150F · titres</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 92px; background: #f6f3e8; border: 1px solid #cfcabb;"></div>
+        <div style="font-size: 13px; font-weight: 500;">Crème</div>
+        <div style="font-size: 12px; color: #6a6656;">#F6F3E8 · fond</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 92px; background: #fbf9f1; border: 1px solid #cfcabb;"></div>
+        <div style="font-size: 13px; font-weight: 500;">Crème claire</div>
+        <div style="font-size: 12px; color: #6a6656;">#FBF9F1 · cartouche</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 92px; background: #14213d;"></div>
+        <div style="font-size: 13px; font-weight: 500;">Bleu nuit</div>
+        <div style="font-size: 12px; color: #6a6656;">#14213D · rare</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 92px; background: #cfcabb;"></div>
+        <div style="font-size: 13px; font-weight: 500;">Filet / texte</div>
+        <div style="font-size: 12px; color: #6a6656;">#CFCABB · #35322A · #6A6656</div>
+      </div>
+    </div>
+    <p style="margin: 4px 0 0; max-width: 68ch; font-size: 15px; line-height: 1.6; color: #35322a; text-wrap: pretty;">Un seul fond par surface : crème ou vert. Jamais rouge et brique en aplats côte à côte. Le chinois prend le vert — ou le crème sur fond vert — et jamais le rouge quand le titre est déjà rouge.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #cfcabb; padding-bottom: 10px;">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-size: 30px; letter-spacing: 0; text-transform: uppercase;">02 · Typographie</h2>
+      <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #6a6656;">字體</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; gap: 24px; align-items: baseline; border-bottom: 1px solid #cfcabb; padding-bottom: 18px;">
+        <div style="flex: 0 0 210px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #6a6656;">Titre · Gloock caps<br>60 px · 0em</div>
+        <div style="font-family: 'Gloock', serif; font-size: 54px; line-height: 1.05; letter-spacing: 0; text-transform: uppercase;">Le goût de l'île</div>
+      </div>
+      <div style="display: flex; gap: 24px; align-items: baseline; border-bottom: 1px solid #cfcabb; padding-bottom: 18px;">
+        <div style="flex: 0 0 210px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #6a6656;">Second titre · Gloock<br>30 px · rouge</div>
+        <div style="font-family: 'Gloock', serif; font-size: 30px; line-height: 1.15; color: #9e2b20;">Récolte de printemps, séchée au feu de bois</div>
+      </div>
+      <div style="display: flex; gap: 24px; align-items: baseline; border-bottom: 1px solid #cfcabb; padding-bottom: 18px;">
+        <div style="flex: 0 0 210px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #6a6656;">Chinois · Noto Sans TC<br>700 / 900 · .08em</div>
+        <div style="font-family: 'Noto Sans TC', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: .08em; color: #04492c;">高山茶 · 春摘</div>
+      </div>
+      <div style="display: flex; gap: 24px; align-items: baseline; border-bottom: 1px solid #cfcabb; padding-bottom: 18px;">
+        <div style="flex: 0 0 210px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #6a6656;">Body · Space Grotesk<br>17 px / 1,65</div>
+        <p style="margin: 0; max-width: 52ch; font-size: 17px; line-height: 1.65; color: #35322a; text-wrap: pretty;">Thés d'altitude, sauces fermentées, biscuits d'ananas : des séries courtes, fabriquées à Taipei et vendues au comptoir.</p>
+      </div>
+      <div style="display: flex; gap: 24px; align-items: baseline;">
+        <div style="flex: 0 0 210px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #6a6656;">Micro-label<br>11–12 px · .24em</div>
+        <div style="font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: #4a4636;">Épicerie de Formose · Taipei · 1949</div>
+      </div>
+    </div>
+    <p style="margin: 4px 0 0; max-width: 68ch; font-size: 15px; line-height: 1.6; color: #35322a; text-wrap: pretty;">Échelle : 60 · 40 · 30 · 26 · 17 · 12 px. Le chinois se règle à environ 70 % du corps du titre latin. Variante serif du chinois (Noto Serif TC 900) réservée aux étiquettes et aux textes courts.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #cfcabb; padding-bottom: 10px;">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-size: 30px; letter-spacing: 0; text-transform: uppercase;">03 · Motifs</h2>
+      <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #6a6656;">圖案</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 170px; background-color: #f6f3e8; background-image: repeating-linear-gradient(45deg, #04492c 0 3px, transparent 3px 16px), repeating-linear-gradient(-45deg, #04492c 0 3px, transparent 3px 16px);"></div>
+        <div style="font-size: 13px; font-weight: 500;">05 · Grillage 鐵窗花</div>
+        <div style="font-size: 12px; color: #6a6656;">Fond de packaging, pleine surface</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 170px; background-color: #f6f3e8; background-image: repeating-linear-gradient(90deg, #16150f 0 1px, transparent 1px 7px), linear-gradient(0deg, #9e2b20 0 14px, transparent 14px), linear-gradient(180deg, #04492c 0 14px, transparent 14px);"></div>
+        <div style="font-size: 13px; font-weight: 500;">12 · Ticket 收據</div>
+        <div style="font-size: 12px; color: #6a6656;">Bandeaux, en-têtes, reçus</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="height: 170px; background-color: #14213d; background-image: radial-gradient(circle at center, #f6f3e8 0 5px, transparent 6px), radial-gradient(circle at center, #9e2b20 0 2px, transparent 3px); background-size: 34px 34px; background-position: 0 0, 17px 17px;"></div>
+        <div style="font-size: 13px; font-weight: 500;">07 · Pastilles 麻將筒</div>
+        <div style="font-size: 12px; color: #6a6656;">Doublure, fond secondaire</div>
+      </div>
+    </div>
+    <p style="margin: 4px 0 0; max-width: 68ch; font-size: 15px; line-height: 1.6; color: #35322a; text-wrap: pretty;">En fond de cartouche, le même motif est réduit à 6–7 % d'opacité. Les gradients CSS complets sont dans <a href="design-system.md">design-system.md</a>.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #cfcabb; padding-bottom: 10px;">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-size: 30px; letter-spacing: 0; text-transform: uppercase;">04 · Composants</h2>
+      <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #6a6656;">元件</span>
+    </div>
+
+    <div style="border: 6px double #04492c; background-color: #fbf9f1; background-image: repeating-linear-gradient(45deg, rgba(4,73,44,.06) 0 3px, transparent 3px 16px), repeating-linear-gradient(-45deg, rgba(4,73,44,.06) 0 3px, transparent 3px 16px); padding: 38px 32px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div style="font-family: 'Gloock', serif; font-size: 56px; line-height: 1.08; letter-spacing: 0; text-transform: uppercase; color: #16150f;">Le goût de l'île</div>
+      <div style="width: 58%; height: 3px; background: #9e2b20;"></div>
+      <div style="font-family: 'Noto Sans TC', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: .08em; color: #04492c;">臺灣製造</div>
+      <div style="font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #4a4636;">Épicerie de Formose · Taipei · 1949</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div style="border: 4px solid #16150f; background: #fbf9f1; display: flex; flex-direction: column;">
+        <div style="background: #9e2b20; padding: 10px 20px; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .28em; color: #f6f3e8; text-transform: uppercase;">
+          <span>Formose</span><span>1949</span>
+        </div>
+        <div style="padding: 26px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Gloock', serif; font-size: 28px; letter-spacing: 0; text-transform: uppercase; color: #16150f;">Bandeau daté</div>
+          <div style="font-size: 14px; line-height: 1.6; color: #35322a;">Barre rouge, lieu à gauche, année à droite.</div>
+        </div>
+      </div>
+      <div style="background: #04492c; color: #f6f3e8; padding: 26px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+        <div style="font-family: 'Gloock', serif; font-size: 40px; letter-spacing: 0; text-transform: uppercase; line-height: 1;">Ouvert 22h</div>
+        <div style="font-family: 'Noto Sans TC', sans-serif; font-weight: 500; font-size: 18px; letter-spacing: .18em;">營業至十點</div>
+        <div style="font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #d4cdb8;">Rue Yongkang, Taipei</div>
+      </div>
+      <div style="background-color: #f6f3e8; background-image: repeating-linear-gradient(90deg, #16150f 0 1px, transparent 1px 7px), linear-gradient(0deg, #9e2b20 0 14px, transparent 14px), linear-gradient(180deg, #04492c 0 14px, transparent 14px); padding: 26px; display: flex; align-items: center; justify-content: center;">
+        <div style="background: #f6f3e8; padding: 18px 26px; text-align: center;">
+          <div style="font-family: 'Gloock', serif; font-size: 26px; letter-spacing: 0; text-transform: uppercase; color: #16150f;">Ticket de comptoir</div>
+          <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #6a6656; margin-top: 6px;">No. 0042 · 收據</div>
+        </div>
+      </div>
+      <div style="background-color: #f6f3e8; background-image: repeating-linear-gradient(45deg, #04492c 0 3px, transparent 3px 16px), repeating-linear-gradient(-45deg, #04492c 0 3px, transparent 3px 16px); padding: 26px; display: flex; align-items: center; justify-content: center;">
+        <div style="background: #fbf9f1; border: 2px solid #16150f; padding: 18px 22px; text-align: center;">
+          <div style="font-family: 'Gloock', serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; color: #16150f;">Étiquette</div>
+          <div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #6a6656; margin-top: 6px;">Fond de packaging</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #cfcabb; padding-bottom: 10px;">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-size: 30px; letter-spacing: 0; text-transform: uppercase;">05 · Ton</h2>
+      <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #6a6656;">語氣</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; max-width: 68ch; font-size: 16px; line-height: 1.6; color: #35322a;">
+      <li>Français simple, phrases courtes, aucun superlatif.</li>
+      <li>Le chinois traditionnel double le message clé — pas tout le texte.</li>
+      <li>Le rétro passe par les cadres, les filets et les motifs : jamais de faux manuscrit ni de grain lourd.</li>
+      <li>Les chiffres (prix, numéros, horaires) restent en Space Grotesk, jamais en Gloock.</li>
+    </ul>
+  </section>
+
+</div>
+
+</x-dc>
+</body>
+</html>

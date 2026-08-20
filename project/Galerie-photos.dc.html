@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Yeseva+One&family=Karla:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  @font-face { font-family: 'S2G Moon'; src: url('./S2G-moon.ttf') format('truetype'); font-weight: 400 900; font-display: swap; unicode-range: U+0-4EFC, U+4EFE-4F5F, U+4F61-5360, U+5362-5563, U+5565-57D4, U+57D6-5975, U+5977-71D8, U+71DA-8524, U+8526-8C92, U+8C94-9EB4, U+9EB6-10FFFF; }
+  @font-face { font-family: 'Alloha'; src: url('./Alloha.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+  html, body { margin: 0; padding: 0; background: #F6F3E8; }
+  a { color: #9E2B20; }
+  a:hover { color: #04492C; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="background:#F6F3E8;color:#35322A;font-family:Karla,sans-serif;min-height:100vh">
+
+  <div style="background:#04492C;border-bottom:1px solid rgba(246,243,232,.3)">
+    <nav style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:16px 28px;max-width:1080px;margin:0 auto;padding:15px 32px">
+        <a href="./Accueil.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Accueil</a>
+        <a href="./Visiter-Taipei.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Visiter Taipei</a>
+        <a href="./Manger.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Manger</a>
+        <a href="./Moi-et-Taiwan.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Moi et Taiwan</a>
+        <a href="./La-culture.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">La culture</a>
+        <a href="./Conseils-pratiques.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Conseils pratiques</a>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;position:relative;display:inline-block;color:#FBF9F1;padding-bottom:12px">Galerie photos<svg viewBox="0 0 120 12" preserveAspectRatio="none" style="position:absolute;left:-3px;bottom:0;width:calc(100% + 6px);height:9px"><path d="M2 7 C 18 3.2, 34 9.4, 52 5.6 C 70 2.2, 88 8.8, 104 4.4 C 110 2.9, 115 4.6, 118 5.4" fill="none" stroke="#C1512A" stroke-width="2.6" stroke-linecap="round" /></svg></span>
+      </nav>
+  </div>
+
+  <div style="background:#04492C;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:12px 32px">
+    <div style="display:flex;align-items:center;gap:16px">
+      <span style="background:#F6F3E8;color:#04492C;font-size:12px;font-weight:700;letter-spacing:.12em;padding:4px 10px">06</span>
+      <span style="font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#F6F3E8">Galerie photos · <span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;letter-spacing:.12em">照片</span></span>
+    </div>
+    <span style="font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#D4CDB8">Taipei · guide personnel</span>
+  </div>
+
+  <div style="padding:28px 32px 0">
+    <div style="display:flex;justify-content:center">
+      <a href="./Accueil.dc.html" style="text-decoration:none;display:block;font-size:21px">
+        <dc-import name="Logo" hint-size="135px,135px"></dc-import>
+      </a>
+    </div>
+    
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:44px 32px 0">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;border-bottom:3px solid #9E2B20;padding-bottom:22px">
+      <div>
+        <div style="font-family:Alloha,serif;font-size:60px;line-height:1.05;color:#16150F;text-transform:uppercase">Galerie photos</div>
+        <p style="font-size:17px;line-height:1.6;margin:18px 0 0;max-width:56ch;text-wrap:pretty">Mes images et mes dessins. Dépose-les dans les cadres : chaque emplacement garde la photo et sa légende.</p>
+      </div>
+      <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:900;font-size:34px;letter-spacing:.08em;color:#04492C;white-space:nowrap">照片</div>
+    </div>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:36px 32px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px">
+
+    <div style="grid-column:span 2;border:1px solid #CFCABB;background:#FBF9F1;padding:14px">
+      <div style="position:relative;height:400px;min-width:0;overflow:hidden">
+        <image-slot id="g-01" shape="rect" placeholder="grande photo — ta préférée"></image-slot>
+      </div>
+      <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656;margin-top:12px">01 · légende à écrire</div>
+    </div>
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:14px">
+      <div style="position:relative;height:400px;min-width:0;overflow:hidden">
+        <image-slot id="g-02" shape="rect" placeholder="photo verticale — une rue"></image-slot>
+      </div>
+      <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656;margin-top:12px">02 · légende à écrire</div>
+    </div>
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:14px">
+      <div style="position:relative;height:240px;min-width:0;overflow:hidden">
+        <image-slot id="g-03" shape="rect" placeholder="photo — détail, enseigne"></image-slot>
+      </div>
+      <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656;margin-top:12px">03 · légende à écrire</div>
+    </div>
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:14px">
+      <div style="position:relative;height:240px;min-width:0;overflow:hidden">
+        <image-slot id="g-04" shape="rect" placeholder="photo — un plat"></image-slot>
+      </div>
+      <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656;margin-top:12px">04 · légende à écrire</div>
+    </div>
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:14px">
+      <div style="position:relative;height:240px;min-width:0;overflow:hidden">
+        <image-slot id="g-05" shape="rect" placeholder="illustration — ton dessin"></image-slot>
+      </div>
+      <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656;margin-top:12px">05 · légende à écrire</div>
+    </div>
+
+    <div style="border:1px solid #CFCABB;background:#FBF9F1;padding:14px">
+      <div style="position:relative;height:300px;min-width:0;overflow:hidden">
+        <image-slot id="g-06" shape="rect" placeholder="photo — de nuit"></image-slot>
+      </div>
+      <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656;margin-top:12px">06 · légende à écrire</div>
+    </div>
+
+    <div style="grid-column:span 2;border:1px solid #CFCABB;background:#FBF9F1;padding:14px">
+      <div style="position:relative;height:300px;min-width:0;overflow:hidden">
+        <image-slot id="g-07" shape="rect" placeholder="photo panoramique — vue depuis les hauteurs"></image-slot>
+      </div>
+      <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656;margin-top:12px">07 · légende à écrire</div>
+    </div>
+
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:48px 32px 60px">
+    <div style="height:14px;background-color:#F6F3E8;background-image:repeating-linear-gradient(90deg,#16150f 0 1px,transparent 1px 7px),linear-gradient(0deg,#9e2b20 0 14px,transparent 14px)"></div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:16px">
+      <a href="./Conseils-pratiques.dc.html" style="font-size:11px;letter-spacing:.28em;text-transform:uppercase">← Conseils pratiques</a>
+      <a href="./Accueil.dc.html" style="font-size:11px;letter-spacing:.28em;text-transform:uppercase">Sommaire →</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

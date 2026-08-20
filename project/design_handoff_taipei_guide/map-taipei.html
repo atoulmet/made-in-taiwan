@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Carte — Taipei</title>
+<script src="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.umd.min.js"></script>
+<link href="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Noto+Sans+TC:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; height: 100%; background: #F6F3E8; }
+  #map { position: absolute; inset: 0; }
+  .maplibregl-popup-content { border-radius: 0; background: #FBF9F1; border: 1px solid #04492C; box-shadow: none; padding: 14px 16px; font-family: Karla, sans-serif; }
+  .maplibregl-popup-tip { border-top-color: #04492C; border-bottom-color: #04492C; }
+  .maplibregl-popup-close-button { color: #6A6656; font-size: 16px; padding: 2px 6px; }
+  .pt { font-size: 15px; font-weight: 700; letter-spacing: .02em; color: #16150F; text-transform: uppercase; }
+  .pc { font-family: 'Noto Sans TC', sans-serif; font-weight: 700; font-size: 17px; color: #04492C; margin-top: 2px; }
+  .pm { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #9E2B20; margin-top: 8px; }
+  .pd { font-size: 13px; line-height: 1.5; color: #35322A; margin-top: 8px; max-width: 30ch; }
+  .pin { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #04492C; flex: none; }
+  .lab { font-family: Karla, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #04492C; white-space: nowrap; text-shadow: 0 0 3px #F6F3E8, 0 0 3px #F6F3E8, 0 0 3px #F6F3E8; }
+  .pin.left { flex-direction: row-reverse; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  maptilersdk.config.apiKey = 'bzu2h9qXhaBmxOqO38bF';
+
+  var lieux = [
+    { n: "Maokong",    c: "貓空",   m: "Ligne marron · téléphérique", d: "Salons de thé au-dessus des collines. Mon endroit préféré, au coucher du soleil.", ll: [121.5883, 24.9683], r: 900,  core: true },
+    { n: "Dadaocheng", c: "大稻埕", m: "Ligne orange · Beimen",       d: "Vieux quartier marchand : herbes, thé, tissus, rue Dihua.",                        ll: [121.5100, 25.0561], r: 700,  core: true, left: true },
+    { n: "Wanhua",     c: "萬華",   m: "Ligne bleue · Longshan",      d: "Le quartier le plus ancien, le temple de Longshan, le marché de nuit.",            ll: [121.4997, 25.0372], r: 900,  core: true, left: true },
+    { n: "Da'an",      c: "大安",   m: "Ligne rouge · Dongmen",       d: "Ruelles calmes, cafés, librairies, parc forestier.",                              ll: [121.5359, 25.0296], r: 1300, core: true },
+    { n: "Zhongshan",  c: "中山",   m: "Rouge & verte · Zhongshan",   d: "Promenade plantée, boutiques japonaises, cafés de Chifeng.",                       ll: [121.5205, 25.0525], r: 900,  core: true },
+    { n: "Beitou",     c: "北投",   m: "Ligne rouge · 30 min",        d: "Sources chaudes dans la ville, vallée de vapeur, bains publics.",                  ll: [121.5030, 25.1373], r: 1100 },
+    { n: "Tamsui",     c: "淡水",   m: "Ligne rouge · terminus",      d: "L'embouchure du fleuve, le coucher de soleil, le bac.",                            ll: [121.4406, 25.1677], r: 1000, left: true },
+    { n: "Jiufen",     c: "九份",   m: "Train + bus · 1 h 30",        d: "Ancienne ville minière à flanc de montagne. Viens tôt.",                           ll: [121.8442, 25.1096], r: 600,  left: true }
+  ];
+
+  // cercle géodésique approximatif autour d'un point (le quartier, pas une limite administrative)
+  function zone(center, metres) {
+    var pts = [], lat = center[1], lng = center[0];
+    var dLat = metres / 111320, dLng = metres / (111320 * Math.cos(lat * Math.PI / 180));
+    for (var i = 0; i <= 64; i++) {
+      var a = (i / 64) * 2 * Math.PI;
+      pts.push([lng + dLng * Math.cos(a), lat + dLat * Math.sin(a)]);
+    }
+    return pts;
+  }
+
+  var map = new maptilersdk.Map({
+    container: 'map',
+    style: maptilersdk.MapStyle.BASIC,
+    center: [121.545, 25.02],
+    zoom: 10.6,
+    scrollZoom: false,
+    geolocate: false,
+    navigationControl: 'bottom-right',
+    terrainControl: false,
+    language: maptilersdk.Language.LATIN
+  });
+
+  map.on('load', function () {
+    map.addSource('quartiers', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: lieux.map(function (p) {
+          return { type: 'Feature', properties: { n: p.n }, geometry: { type: 'Polygon', coordinates: [zone(p.ll, p.r)] } };
+        })
+      }
+    });
+    map.addLayer({
+      id: 'quartiers-fond', type: 'fill', source: 'quartiers',
+      paint: { 'fill-color': '#04492C', 'fill-opacity': 0.1 }
+    });
+    map.addLayer({
+      id: 'quartiers-trait', type: 'line', source: 'quartiers',
+      paint: { 'line-color': '#04492C', 'line-width': 1.6, 'line-dasharray': [3, 2] }
+    });
+
+    lieux.forEach(function (p) {
+      var el = document.createElement('div');
+      el.className = 'pin' + (p.left ? ' left' : '');
+      el.innerHTML = '<div class="dot"></div><div class="lab">' + p.n + '</div>';
+      new maptilersdk.Marker({ element: el, anchor: p.left ? 'right' : 'left' })
+        .setLngLat(p.ll)
+        .setPopup(new maptilersdk.Popup({ offset: 16, maxWidth: '280px' }).setHTML(
+          '<div class="pt">' + p.n + '</div><div class="pc">' + p.c + '</div>' +
+          '<div class="pm">' + p.m + '</div><div class="pd">' + p.d + '</div>'
+        ))
+        .addTo(map);
+    });
+
+    var b = new maptilersdk.LngLatBounds();
+    lieux.filter(function (p) { return p.core; }).forEach(function (p) { b.extend(p.ll); });
+    map.fitBounds(b, { padding: 90, duration: 0 });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Yeseva+One&family=Karla:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  @font-face { font-family: 'S2G Moon'; src: url('./S2G-moon.ttf') format('truetype'); font-weight: 400 900; font-display: swap; unicode-range: U+0-4EFC, U+4EFE-4F5F, U+4F61-5360, U+5362-5563, U+5565-57D4, U+57D6-5975, U+5977-71D8, U+71DA-8524, U+8526-8C92, U+8C94-9EB4, U+9EB6-10FFFF; }
+  @font-face { font-family: 'Alloha'; src: url('./Alloha.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+  html, body { margin: 0; padding: 0; background: #F6F3E8; }
+  a { color: #9E2B20; }
+  a:hover { color: #04492C; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="background:#F6F3E8;color:#35322A;font-family:Karla,sans-serif;min-height:100vh">
+
+  <div style="background:#04492C;border-bottom:1px solid rgba(246,243,232,.3)">
+    <nav style="display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:16px 28px;max-width:1080px;margin:0 auto;padding:15px 32px">
+        <a href="./Accueil.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Accueil</a>
+        <a href="./Visiter-Taipei.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Visiter Taipei</a>
+        <a href="./Manger.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Manger</a>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;position:relative;display:inline-block;color:#FBF9F1;padding-bottom:12px">Moi et Taiwan<svg viewBox="0 0 120 12" preserveAspectRatio="none" style="position:absolute;left:-3px;bottom:0;width:calc(100% + 6px);height:9px"><path d="M2 7 C 18 3.2, 34 9.4, 52 5.6 C 70 2.2, 88 8.8, 104 4.4 C 110 2.9, 115 4.6, 118 5.4" fill="none" stroke="#C1512A" stroke-width="2.6" stroke-linecap="round" /></svg></span>
+        <a href="./La-culture.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">La culture</a>
+        <a href="./Conseils-pratiques.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Conseils pratiques</a>
+        <a href="./Galerie-photos.dc.html" style="font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#DCD6C2;text-decoration:none;display:inline-block;padding-bottom:12px">Galerie photos</a>
+      </nav>
+  </div>
+
+  <div style="background:#04492C;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:12px 32px">
+    <div style="display:flex;align-items:center;gap:16px">
+      <span style="background:#F6F3E8;color:#04492C;font-size:12px;font-weight:700;letter-spacing:.12em;padding:4px 10px">03</span>
+      <span style="font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#F6F3E8">Moi et Taiwan · <span style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;letter-spacing:.12em">我和台灣</span></span>
+    </div>
+    <span style="font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#D4CDB8">Taipei · guide personnel</span>
+  </div>
+
+  <div style="padding:28px 32px 0">
+    <div style="display:flex;justify-content:center">
+      <a href="./Accueil.dc.html" style="text-decoration:none;display:block;font-size:21px">
+        <dc-import name="Logo" hint-size="135px,135px"></dc-import>
+      </a>
+    </div>
+    
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:44px 32px 0">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:stretch">
+      <div>
+        <div style="font-family:Alloha,serif;font-size:60px;line-height:1.05;color:#16150F;text-transform:uppercase">Moi et Taiwan</div>
+        <div style="width:58%;height:3px;background:#9E2B20;margin:20px 0"></div>
+        <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:900;font-size:30px;letter-spacing:.08em;color:#04492C">我和台灣</div>
+        <p style="font-size:17px;line-height:1.65;margin:22px 0 0;max-width:46ch;text-wrap:pretty">J'y suis partie un an pour apprendre le chinois. J'y suis retournée cinq fois depuis. Ce site existe parce qu'on me pose toujours les mêmes questions, et que je réponds toujours la même chose.</p>
+        <p style="font-size:17px;line-height:1.65;margin:16px 0 0;max-width:46ch;text-wrap:pretty">Ce n'est pas un guide. C'est ma liste — les quartiers où je retourne, les bols que je commande sans regarder la carte, et l'endroit où je monte le premier soir.</p>
+      </div>
+      <div style="position:relative;height:440px;min-width:0;overflow:hidden;border:1px solid #CFCABB">
+        <image-slot id="moi-portrait" shape="rect" placeholder="photo — toi, ou ta rue là-bas"></image-slot>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:52px 32px 0">
+    <div style="display:flex;align-items:baseline;gap:16px">
+      <div style="font-family:Alloha,serif;font-size:30px;color:#9E2B20;text-transform:lowercase">l'année de chinois</div>
+      <div style="flex:1;height:1px;background:#CFCABB"></div>
+      <div style="font-family:'S2G Moon','Noto Sans TC',sans-serif;font-weight:700;font-size:15px;letter-spacing:.1em;color:#04492C">學中文的一年</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:26px">
+      <div style="border:2px solid #16150F;background:#FBF9F1;padding:22px">
+        <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656">Arriver</div>
+        <div style="font-family:Alloha,serif;font-size:26px;color:#16150F;text-transform:uppercase;margin-top:10px">Les premiers mois</div>
+        <p style="font-size:15px;line-height:1.6;margin:12px 0 0">Cours le matin, quartier inconnu l'après-midi, dictionnaire dans la poche. On commande en montrant du doigt, puis un jour on commande sans montrer.</p>
+      </div>
+      <div style="border:2px solid #16150F;background:#FBF9F1;padding:22px">
+        <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656">Habiter</div>
+        <div style="font-family:Alloha,serif;font-size:26px;color:#16150F;text-transform:uppercase;margin-top:10px">La routine</div>
+        <p style="font-size:15px;line-height:1.6;margin:12px 0 0">Le même lait de soja tous les matins, la même dame qui te reconnaît. C'est ça, Taipei : une très grande ville faite de rues très petites.</p>
+      </div>
+      <div style="border:2px solid #16150F;background:#FBF9F1;padding:22px">
+        <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6A6656">Revenir</div>
+        <div style="font-family:Alloha,serif;font-size:26px;color:#16150F;text-transform:uppercase;margin-top:10px">Cinq fois</div>
+        <p style="font-size:15px;line-height:1.6;margin:12px 0 0">Chaque retour ajoute deux ou trois adresses et en enlève une qui a fermé. La liste bouge ; l'envie d'y retourner, non.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:52px 32px 0">
+    <div style="border:6px double #04492C;background-color:#FBF9F1;background-image:repeating-linear-gradient(45deg,rgba(4,73,44,.07) 0 3px,transparent 3px 16px),repeating-linear-gradient(-45deg,rgba(4,73,44,.07) 0 3px,transparent 3px 16px);padding:38px 32px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:center">
+      <div>
+        <div style="font-family:Alloha,serif;font-size:40px;line-height:1.06;color:#16150F;text-transform:uppercase">Ce que je dis toujours</div>
+        <div style="width:40%;height:3px;background:#9E2B20;margin:18px 0"></div>
+        <p style="font-size:17px;line-height:1.65;margin:0;max-width:52ch;text-wrap:pretty">Reste plus longtemps que prévu à Taipei. Ne coche pas les sites : prends un quartier par demi-journée et laisse la ville te ralentir. Parle aux gens, même mal — c'est le pays où l'on t'aidera le plus volontiers.</p>
+      </div>
+      <div style="position:relative;height:240px;min-width:0;overflow:hidden;border:1px solid #CFCABB">
+        <image-slot id="moi-souvenir" shape="rect" placeholder="photo — un souvenir, un ticket, un carnet"></image-slot>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:48px 32px 60px">
+    <div style="height:14px;background-color:#F6F3E8;background-image:repeating-linear-gradient(90deg,#16150f 0 1px,transparent 1px 7px),linear-gradient(0deg,#9e2b20 0 14px,transparent 14px)"></div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:16px">
+      <a href="./Manger.dc.html" style="font-size:11px;letter-spacing:.28em;text-transform:uppercase">← Manger</a>
+      <a href="./La-culture.dc.html" style="font-size:11px;letter-spacing:.28em;text-transform:uppercase">La culture →</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
