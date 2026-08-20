@@ -21,8 +21,19 @@ LIMITE=$((500 * 1024))
 
 [ -d "$SOURCE" ] || exit 0
 
+# sips est un outil macOS. Sur Linux (Vercel, CI) on sort sans rien faire :
+# public/photos est versionné, le build n'a pas à le reconstruire.
+if ! command -v sips >/dev/null 2>&1; then
+  echo "photos : sips absent (hors macOS), on garde public/photos tel quel"
+  exit 0
+fi
+
 convertis=0
 sautes=0
+
+liste=$(mktemp)
+trap 'rm -f "$liste"' EXIT
+find "$SOURCE" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.heic' \) | sort > "$liste"
 
 while IFS= read -r src; do
   rel="${src#$SOURCE/}"
@@ -47,6 +58,6 @@ while IFS= read -r src; do
 
   printf "photo · %s  (%s Ko)\n" "$dest" "$(( $(stat -f%z "$dest") / 1024 ))"
   convertis=$((convertis + 1))
-done < <(find "$SOURCE" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.heic' \) | sort)
+done < "$liste"
 
 echo "photos : $convertis converties, $sautes déjà à jour"
