@@ -29,9 +29,8 @@ type Props = {
 };
 
 /**
- * En-tête commun à toutes les pages : barre de navigation, bandeau
- * d'identification, puis la marque — cartouche pleine largeur sur l'accueil,
- * logo rond ailleurs.
+ * En-tête commun à toutes les pages : barre de navigation, puis la marque —
+ * cartouche pleine largeur sur l'accueil, logo rond ailleurs.
  */
 export function SiteHeader({ page, pages, enseigne }: Props) {
   const accueil = page.slug === 'accueil';
@@ -53,16 +52,6 @@ export function SiteHeader({ page, pages, enseigne }: Props) {
             ),
           )}
         </nav>
-      </div>
-
-      <div className={styles.bandeau}>
-        <div className={styles.identite}>
-          <span className={styles.numero}>{page.num}</span>
-          <span className={styles.nomPage}>
-            {page.bandeau as string} · <span className={styles.chinois}>{page.chinese}</span>
-          </span>
-        </div>
-        <span className={styles.mention}>Taipei · guide personnel</span>
       </div>
 
       {accueil ? (

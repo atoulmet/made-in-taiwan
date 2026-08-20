@@ -12,7 +12,7 @@ photo:
   src: ""
   placeholder: photo — un quartier
 quartiers:
-  label: Cinq quartiers
+  label: Mes quartiers favoris
 carte:
   badge: La carte · 地圖
   titre: Carte de mes adresses à Taipei
@@ -21,4 +21,4 @@ escapades:
   chinese: 郊外
 ---
 
-Taipei se lit par quartiers. Chacun a son heure, sa station, son odeur. Prends-en un par demi-journée et marche : la ville est petite et le métro rattrape toujours les erreurs.
+C'est super agréable de se balader à Taipei en marchant (sauf quand il fait 30 degrés et 95% d'humidité, mais ça c'est une autre histoire). Donc le meilleur moyen de découvrir la ville est de choisir un quartier et de passer la demie journée à l'explorer.

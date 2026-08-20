@@ -83,3 +83,51 @@ export function voisines(slug: string): { avant?: Page; apres?: Page } {
   const i = pages.findIndex((p) => p.slug === slug);
   return { avant: pages[i - 1], apres: pages[i + 1] };
 }
+
+/* Photos ------------------------------------------------------------------ */
+
+/** Dossier servi par Next, alimenté par `npm run photos` depuis content/photos. */
+const PHOTOS = path.join(process.cwd(), 'public', 'photos');
+
+/** Minuscules, sans accents ni séparateurs : « Da'an — Est » → « daanest ». */
+function normaliser(nom: string) {
+  return nom
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+}
+
+/**
+ * Les photos rangées par dossier, lues au build. Déposer des fichiers dans
+ * `content/photos/<Quartier>/` suffit : ils apparaissent sur la fiche du
+ * quartier du même nom, sans rien écrire dans le Markdown.
+ */
+export function photosParDossier(): Record<string, string[]> {
+  if (!fs.existsSync(PHOTOS)) return {};
+  const par: Record<string, string[]> = {};
+  for (const dossier of fs.readdirSync(PHOTOS)) {
+    const chemin = path.join(PHOTOS, dossier);
+    if (!fs.statSync(chemin).isDirectory()) continue;
+    par[normaliser(dossier)] = fs
+      .readdirSync(chemin)
+      .filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f))
+      .sort()
+      .map((f) => `/photos/${dossier}/${f}`);
+  }
+  return par;
+}
+
+/**
+ * Les photos d'une fiche. Le dossier est retrouvé par son nom : d'abord le
+ * champ `photos:` de l'en-tête s'il est renseigné, sinon le slug, sinon le
+ * nom affiché. Rien ne correspond ? La fiche garde son cadre d'attente.
+ */
+export function photosDe(fiche: Fiche, par: Record<string, string[]>): string[] {
+  for (const piste of [fiche.photos as string | undefined, fiche.slug, fiche.name as string]) {
+    if (!piste) continue;
+    const trouve = par[normaliser(piste)];
+    if (trouve?.length) return trouve;
+  }
+  return [];
+}

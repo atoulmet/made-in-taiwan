@@ -86,3 +86,22 @@
   color: var(--texte-2);
   text-align: center;
 }
+
+/* Marchés de nuit : le même marqueur, au rouge de la palette. */
+.rouge .point {
+  background: var(--rouge);
+}
+
+.rouge .libelle {
+  color: var(--rouge);
+}
+
+/* Lieux à visiter : un triangle, pour les distinguer des quartiers au premier
+   coup d'œil sans changer de couleur. Légèrement plus large qu'un point, la
+   forme paraissant plus petite à surface égale. */
+.triangle .point {
+  width: 10px;
+  height: 9px;
+  border-radius: 0;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}

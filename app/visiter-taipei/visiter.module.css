@@ -82,12 +82,17 @@
 /* Fiche de quartier ------------------------------------------------------- */
 
 .fiche {
+  position: relative;
   border: 1px solid var(--filet);
   background: var(--creme-clair);
   padding: 16px;
   display: grid;
   grid-template-columns: 112px minmax(0, 1fr);
   gap: 16px;
+  /* Toutes les fiches s'arrêtent là. Au-delà, FicheQuartier mesure le
+     débordement et affiche « voir plus », qui ouvre la fiche en plein écran. */
+  max-height: 400px;
+  overflow: hidden;
 }
 
 .vignetteFiche {
@@ -342,5 +347,268 @@
 
   .vignetteFiche {
     height: 160px;
+  }
+}
+
+/* Étiquettes de filtre ---------------------------------------------------- */
+
+.etiquettes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.etiquette {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--texte-2);
+  background: transparent;
+  border: 1px solid var(--filet);
+  border-radius: 0;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.etiquette:hover {
+  border-color: var(--vert);
+  color: var(--texte);
+}
+
+/* Active : le fond crème clair et le trait vert, comme les fiches. */
+.etiquetteActive {
+  background: var(--creme-clair);
+  border-color: var(--vert);
+  color: var(--vert);
+  font-weight: 700;
+}
+
+/* La pastille rappelle la couleur du point sur la carte. Éteinte, elle est
+   creuse : on lit d'un coup ce qui est affiché. */
+.puce {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
+.etiquetteActive .puce_quartier {
+  background: var(--vert);
+  border-color: var(--vert);
+}
+
+/* Lieux à visiter : la pastille reprend le triangle de la carte. Le creux se
+   fait par un second triangle en fond de page, un clip-path ne laissant pas
+   de bordure visible. */
+.puce_lieu {
+  position: relative;
+  border: none;
+  background: currentColor;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  width: 10px;
+  height: 9px;
+}
+
+.puce_lieu::after {
+  content: '';
+  position: absolute;
+  inset: 3px 2px 1px;
+  background: var(--creme);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.etiquetteActive .puce_lieu {
+  background: var(--vert);
+}
+
+.etiquetteActive .puce_lieu::after {
+  display: none;
+}
+
+.etiquetteActive .puce_marche {
+  background: var(--rouge);
+  border-color: var(--rouge);
+}
+
+/* Fiche repliée : voile et bouton ---------------------------------------- */
+
+/* Le dégradé mange les dernières lignes plutôt que de les couper net. */
+.voile {
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  padding: 40px 16px 14px;
+  display: flex;
+  justify-content: flex-end;
+  background: linear-gradient(to bottom, rgba(251, 249, 241, 0), var(--creme-clair) 60%);
+  pointer-events: none;
+}
+
+.voirPlus {
+  pointer-events: auto;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--vert);
+  background: var(--creme);
+  border: 1px solid var(--vert);
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+.voirPlus:hover {
+  background: var(--vert);
+  color: var(--creme);
+}
+
+/* Fiche dépliée : modale plein écran -------------------------------------- */
+
+.modale {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--creme);
+  overflow-y: auto;
+  padding: var(--marge);
+}
+
+.modaleCadre {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  min-height: calc(100vh - 2 * var(--marge));
+  display: flex;
+  flex-direction: column;
+}
+
+.fermer {
+  align-self: flex-end;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--vert);
+  background: transparent;
+  border: 1px solid var(--vert);
+  padding: 8px 14px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.fermer:hover {
+  background: var(--vert);
+  color: var(--creme);
+}
+
+/* La photo prend la moitié gauche, le texte a tout le reste. */
+.modaleGrille {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.galerie {
+  position: sticky;
+  top: 0;
+}
+
+.photoModale {
+  height: min(64vh, 560px);
+}
+
+/* Les autres photos du dossier, sous la grande. */
+.vignettes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.vignette {
+  width: 72px;
+  height: 54px;
+  padding: 0;
+  border: 1px solid var(--filet);
+  background: var(--creme);
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0.55;
+}
+
+.vignette img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vignette:hover {
+  opacity: 0.85;
+}
+
+.vignetteActive {
+  border-color: var(--vert);
+  opacity: 1;
+}
+
+.modaleTexte {
+  padding-bottom: 40px;
+}
+
+.nomFicheGrand {
+  font-family: var(--titre);
+  font-size: 52px;
+  line-height: 1.02;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.chinoisFicheGrand {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 34px;
+  color: var(--vert);
+  letter-spacing: 0.08em;
+}
+
+.modaleTexte .texteFiche p {
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 18px 0 0;
+}
+
+.modaleTexte .texteNote {
+  font-size: 15px;
+}
+
+@media (max-width: 860px) {
+  .modaleGrille {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .galerie {
+    position: static;
+  }
+
+  .photoModale {
+    height: 40vh;
+  }
+
+  .nomFicheGrand {
+    font-size: 38px;
   }
 }
