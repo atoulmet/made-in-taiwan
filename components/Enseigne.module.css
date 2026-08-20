@@ -1,0 +1,64 @@
+.cadre {
+  border: 2px solid var(--vert);
+  padding: 5px;
+}
+
+.interieur {
+  border: 1px solid var(--vert);
+  background: var(--creme-clair);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.chinois {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 62px;
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  color: var(--vert);
+}
+
+.filet {
+  width: 52%;
+  max-width: 520px;
+  height: 3px;
+  background: var(--rouge);
+  margin: 20px auto;
+}
+
+.mot {
+  font-family: var(--titre);
+  font-size: 54px;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  color: var(--rouge);
+  text-transform: uppercase;
+}
+
+.mention {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--texte-2);
+  margin-top: 20px;
+}
+
+@media (max-width: 720px) {
+  .interieur {
+    padding: 28px 18px;
+  }
+
+  .chinois {
+    font-size: 40px;
+  }
+
+  .mot {
+    font-size: 34px;
+  }
+
+  .mention {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+}

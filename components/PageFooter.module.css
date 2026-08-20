@@ -1,0 +1,33 @@
+.pied {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 48px var(--marge) 60px;
+}
+
+/* Motif ticket : perforations noires 1px/7px sur filet rouge de 14px. */
+.ticket {
+  height: 14px;
+  background-color: var(--creme);
+  background-image:
+    repeating-linear-gradient(90deg, #16150f 0 1px, transparent 1px 7px),
+    linear-gradient(0deg, #9e2b20 0 14px, transparent 14px);
+}
+
+.liens {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.lien,
+.mention {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.mention {
+  color: var(--texte-2);
+}

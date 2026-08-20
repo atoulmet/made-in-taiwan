@@ -1,0 +1,346 @@
+/* Intro ------------------------------------------------------------------- */
+
+.intro {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 44px var(--marge) 0;
+}
+
+.grilleIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: end;
+  border-bottom: 3px solid var(--rouge);
+  padding-bottom: 22px;
+}
+
+.titrePage {
+  font-family: var(--titre);
+  font-size: 60px;
+  line-height: 1.05;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.texteIntro p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--texte);
+  margin: 18px 0 0;
+  max-width: 56ch;
+}
+
+.chinoisPage {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 34px;
+  letter-spacing: 0.08em;
+  color: var(--vert);
+  white-space: nowrap;
+}
+
+/* Deux colonnes pleine fenêtre -------------------------------------------- */
+
+.deuxColonnes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin-top: 36px;
+  align-items: start;
+}
+
+/* La colonne de gauche reste alignée sur la grille du site (1080px centrés)
+   alors qu'elle sort du conteneur. */
+.colonneFiches {
+  padding: 0 36px 0 max(var(--marge), calc(50vw - 540px));
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.enteteColonne {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.labelColonne {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rouge);
+}
+
+.trait {
+  flex: 1;
+  height: 1px;
+  background: var(--filet);
+}
+
+/* Fiche de quartier ------------------------------------------------------- */
+
+.fiche {
+  border: 1px solid var(--filet);
+  background: var(--creme-clair);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.vignetteFiche {
+  height: 112px;
+}
+
+.enteteFiche {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nomFiche {
+  font-family: var(--titre);
+  font-size: 30px;
+  line-height: 1.05;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.chinoisFiche {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--vert);
+  letter-spacing: 0.08em;
+}
+
+.ligneMetro {
+  margin-top: 10px;
+}
+
+.pastilleMetro {
+  background: var(--vert);
+  color: var(--creme);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 5px;
+}
+
+.texteFiche p {
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 12px 0 0;
+}
+
+/* Ma note : cadre plein quand elle est écrite, pointillé tant qu'elle
+   attend le texte de l'autrice. */
+.note,
+.noteVide {
+  background: var(--creme);
+  margin-top: 12px;
+}
+
+.note {
+  border: 1px solid var(--filet);
+  padding: 12px 14px;
+}
+
+.noteVide {
+  border: 1px dashed var(--filet);
+  padding: 11px 14px;
+}
+
+.labelNote,
+.labelNoteVide {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.labelNote {
+  color: var(--rouge);
+}
+
+.labelNoteVide {
+  color: var(--texte-2);
+}
+
+.texteNote {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+
+.lienMaps {
+  margin-top: 12px;
+}
+
+.lienMaps a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* Colonne carte ----------------------------------------------------------- */
+
+.colonneCarte {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-left: 1px solid var(--vert);
+}
+
+.cadreCarte {
+  position: absolute;
+  inset: 0;
+  background: var(--creme);
+}
+
+.badgeCarte {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--vert);
+  color: var(--creme);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+/* Escapades --------------------------------------------------------------- */
+
+.escapades {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 52px var(--marge) 0;
+}
+
+.enteteSection {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.labelSection {
+  font-family: var(--titre);
+  font-size: 30px;
+  color: var(--rouge);
+  text-transform: lowercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.chinoisSection {
+  font-family: var(--chinois);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--vert);
+}
+
+.grilleEscapades {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.carteEscapade {
+  border: 2px solid var(--encre);
+  background: var(--creme-clair);
+  padding: 20px;
+}
+
+.vignetteEscapade {
+  height: 150px;
+  margin-bottom: 16px;
+}
+
+.nomEscapade {
+  font-family: var(--titre);
+  font-size: 26px;
+  color: var(--encre);
+  text-transform: uppercase;
+}
+
+.chinoisEscapade {
+  font-family: var(--chinois);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--vert);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.trajet {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--texte-2);
+  margin-top: 10px;
+}
+
+.texteEscapade p {
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 12px 0 0;
+}
+
+/* Écrans étroits ---------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  /* La carte passe sous les fiches et cesse d'être collée : sur un écran
+     étroit, une carte en position fixe mange toute la page. */
+  .deuxColonnes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .colonneFiches {
+    padding: 0 var(--marge);
+  }
+
+  .colonneCarte {
+    position: relative;
+    height: 70vh;
+    min-height: 420px;
+    border-left: 0;
+    border-top: 1px solid var(--vert);
+    border-bottom: 1px solid var(--vert);
+  }
+}
+
+@media (max-width: 720px) {
+  .grilleIntro {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .titrePage {
+    font-size: 42px;
+  }
+
+  .grilleEscapades {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .fiche {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vignetteFiche {
+    height: 160px;
+  }
+}

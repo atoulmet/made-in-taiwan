@@ -1,0 +1,248 @@
+/* Ouverture --------------------------------------------------------------- */
+
+.ouverture {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 44px var(--marge) 0;
+}
+
+.grilleOuverture {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: stretch;
+}
+
+/* Cartouche d'ouverture : double filet vert et motif grillage 鐵窗花 à 7 %. */
+.cartouche {
+  border: 6px double var(--vert);
+  background-color: var(--creme-clair);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(4, 73, 44, 0.07) 0 3px, transparent 3px 16px),
+    repeating-linear-gradient(-45deg, rgba(4, 73, 44, 0.07) 0 3px, transparent 3px 16px);
+  padding: 38px 32px;
+}
+
+.titre {
+  font-family: var(--titre);
+  font-size: 52px;
+  line-height: 1.06;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.ligneTitre {
+  display: block;
+}
+
+.filet {
+  width: 58%;
+  height: 3px;
+  background: var(--rouge);
+  margin: 22px 0;
+}
+
+.chinois {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 0.08em;
+  color: var(--vert);
+}
+
+.intro p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--texte);
+  margin: 22px 0 0;
+  max-width: 38ch;
+}
+
+.mentionCartouche {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--texte-2);
+  margin-top: 26px;
+}
+
+.photoOuverture {
+  height: 420px;
+}
+
+/* Sommaire ---------------------------------------------------------------- */
+
+.sommaire {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 56px var(--marge) 0;
+}
+
+.entete {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.labelSection {
+  font-family: var(--titre);
+  font-size: 30px;
+  color: var(--rouge);
+  text-transform: lowercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.trait {
+  flex: 1;
+  height: 1px;
+  background: var(--filet);
+}
+
+.chinoisSection {
+  font-family: var(--chinois);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--vert);
+}
+
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.carte {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border: 1px solid var(--filet);
+  background: var(--creme-clair);
+}
+
+.carte:hover {
+  border-color: var(--vert);
+  color: inherit;
+}
+
+.vignette {
+  height: 180px;
+}
+
+.corpsCarte {
+  padding: 20px 22px 22px;
+}
+
+.numero {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--texte-2);
+}
+
+.titreCarte {
+  font-family: var(--titre);
+  font-size: 26px;
+  color: var(--encre);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.chinoisCarte {
+  font-family: var(--chinois);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--vert);
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+}
+
+.teaser {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--texte);
+  margin: 12px 0 0;
+}
+
+/* Bloc « Si tu ne fais qu'une chose » -------------------------------------- */
+
+.coupDeCoeur {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 56px var(--marge) 0;
+}
+
+.blocVert {
+  background: var(--vert);
+  padding: 38px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.titreVert {
+  font-family: var(--titre);
+  font-size: 30px;
+  color: var(--creme);
+  text-transform: uppercase;
+  line-height: 1.1;
+  font-weight: 400;
+  margin: 0;
+}
+
+.texteVert {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--creme);
+  margin: 16px 0 0;
+  max-width: 52ch;
+}
+
+.chinoisVert {
+  font-family: var(--chinois);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--sur-vert-1);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+/* Écrans étroits ---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .grilleOuverture {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .photoOuverture {
+    height: 280px;
+  }
+
+  .cartes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blocVert {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .titre {
+    font-size: 38px;
+  }
+
+  .cartouche {
+    padding: 26px 20px;
+  }
+
+  .cartes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

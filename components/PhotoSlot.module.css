@@ -1,0 +1,42 @@
+.cadre {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--filet);
+  background: var(--creme);
+}
+
+.filetBas {
+  border-width: 0 0 1px;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Emplacement vide : motif grillage très atténué, pour qu'on voie
+   au premier coup d'œil qu'il attend une photo. */
+.vide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--creme);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(4, 73, 44, 0.05) 0 3px, transparent 3px 16px),
+    repeating-linear-gradient(-45deg, rgba(4, 73, 44, 0.05) 0 3px, transparent 3px 16px);
+}
+
+.attente {
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--texte-2);
+  text-align: center;
+  padding: 0 12px;
+}

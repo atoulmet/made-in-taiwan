@@ -1,0 +1,104 @@
+/* Made in Taiwan — feuille globale
+   Palette, polices et bases communes à toutes les pages.
+   Le détail de chaque bloc vit dans le module CSS du composant. */
+
+/* Alloha — police de titrage achetée par l'autrice (licence web à vérifier). */
+@font-face {
+  font-family: 'Alloha';
+  src: url('/fonts/Alloha.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* S2G Moon — chinois traditionnel.
+   Dix glyphes du fichier sont vides (份 你 卡 啤 埕 奶 燙 蔥 貓 麵) : le repli
+   navigateur ne s'active pas tout seul puisque le glyphe existe, il est juste
+   vide. Ces dix points de code sont donc exclus par unicode-range pour retomber
+   sur Noto Sans TC. Ne pas modifier cette règle. */
+@font-face {
+  font-family: 'S2G Moon';
+  src: url('/fonts/S2G-moon.woff2') format('woff2');
+  font-weight: 400 900;
+  font-display: swap;
+  unicode-range: U+0-4EFC, U+4EFE-4F5F, U+4F61-5360, U+5362-5563, U+5565-57D4,
+                 U+57D6-5975, U+5977-71D8, U+71DA-8524, U+8526-8C92, U+8C94-9EB4, U+9EB6-10FFFF;
+}
+
+:root {
+  /* Couleurs */
+  --vert: #04492C;
+  --rouge: #9E2B20;
+  --brique: #C1512A;
+  --encre: #16150F;
+  --creme: #F6F3E8;
+  --creme-clair: #FBF9F1;
+  --filet: #CFCABB;
+  --texte: #35322A;
+  --texte-2: #6A6656;
+  --sur-vert-1: #D4CDB8;
+  --sur-vert-2: #DCD6C2;
+  --sur-vert-3: #E4DFCE;
+
+  /* Typographie */
+  --titre: 'Alloha', serif;
+  --corps: var(--font-karla), sans-serif;
+  --chinois: 'S2G Moon', var(--font-noto-tc), sans-serif;
+
+  /* Grille */
+  --contenu: 1080px;
+  --marge: 32px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--creme);
+}
+
+body {
+  color: var(--texte);
+  font-family: var(--corps);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--rouge);
+}
+
+a:hover {
+  color: var(--vert);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Popups de la carte MapTiler : les classes viennent de la bibliothèque,
+   elles ne peuvent pas passer par un module CSS. */
+.maplibregl-popup-content {
+  border-radius: 0;
+  background: var(--creme-clair);
+  border: 1px solid var(--vert);
+  box-shadow: none;
+  padding: 14px 16px;
+  font-family: var(--corps);
+}
+
+.maplibregl-popup-tip {
+  border-top-color: var(--vert);
+  border-bottom-color: var(--vert);
+}
+
+.maplibregl-popup-close-button {
+  color: var(--texte-2);
+  font-size: 16px;
+  padding: 2px 6px;
+}

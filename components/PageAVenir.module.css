@@ -1,0 +1,66 @@
+.intro {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 44px var(--marge) 0;
+}
+
+.grilleIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: end;
+  border-bottom: 3px solid var(--rouge);
+  padding-bottom: 22px;
+}
+
+.titrePage {
+  font-family: var(--titre);
+  font-size: 60px;
+  line-height: 1.05;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.chinoisPage {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 34px;
+  letter-spacing: 0.08em;
+  color: var(--vert);
+  white-space: nowrap;
+}
+
+.attente {
+  border: 1px dashed var(--filet);
+  background: var(--creme-clair);
+  padding: 32px;
+  margin-top: 36px;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--texte-2);
+}
+
+.texte {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--texte);
+  margin: 12px 0 0;
+  max-width: 56ch;
+}
+
+@media (max-width: 720px) {
+  .grilleIntro {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .titrePage {
+    font-size: 42px;
+  }
+}

@@ -1,0 +1,88 @@
+.carte {
+  position: absolute;
+  inset: 0;
+  background: var(--creme);
+}
+
+/* Marqueur : un point de 7px et un libellé, ancré à gauche ou à droite
+   du point selon le lieu, pour éviter que les libellés se chevauchent. */
+.pin {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+
+.gauche {
+  flex-direction: row-reverse;
+}
+
+.point {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--vert);
+  flex: none;
+}
+
+.libelle {
+  font-family: var(--corps);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--vert);
+  white-space: nowrap;
+  text-shadow: 0 0 3px #f6f3e8, 0 0 3px #f6f3e8, 0 0 3px #f6f3e8;
+}
+
+/* Popup — le cadre crème et vert est dans globals.css, la bibliothèque
+   posant elle-même les classes du conteneur. */
+.popupTitre {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--encre);
+  text-transform: uppercase;
+}
+
+.popupChinois {
+  font-family: var(--chinois);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--vert);
+  margin-top: 2px;
+}
+
+.popupLigne {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rouge);
+  margin-top: 8px;
+}
+
+.popupNote {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--texte);
+  margin-top: 8px;
+  max-width: 30ch;
+}
+
+.absente {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background-color: var(--creme);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(4, 73, 44, 0.05) 0 3px, transparent 3px 16px),
+    repeating-linear-gradient(-45deg, rgba(4, 73, 44, 0.05) 0 3px, transparent 3px 16px);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--texte-2);
+  text-align: center;
+}
