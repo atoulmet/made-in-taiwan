@@ -2,6 +2,7 @@
 name: Zhongshan
 chinese: 中山
 metro: Rouge & verte · Zhongshan
+note: Le quartier des cool kids
 maps: https://www.google.com/maps/search/?api=1&query=Zhongshan+District+Taipei
 photo:
   src: ""
@@ -12,7 +13,6 @@ carte:
   rayon: 900
   coeur: true
   libelle: droite
-  note: Promenade plantée, boutiques japonaises, cafés de Chifeng.
 ---
 
-Entre la gare principale et Shuanglian : promenade plantée, boutiques japonaises, cafés de Chifeng. Facile pour un premier jour.
+Actuellement c'est un des quartiers les plus hype de Taipei. Si bien que le weekend, il est parfois difficile de circuler en plein après-midi. On y trouve des boutiques de seconde main, des cafés très stylés, des librairies. Une des raisons pour lesquelles ce quartier est bondé le weekend est la présence du marché de créateur le samedi et le dimanche. L'occasion aussi de faire un saut au Eslite Bookstore.

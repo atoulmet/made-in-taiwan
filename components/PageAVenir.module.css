@@ -32,6 +32,37 @@
   white-space: nowrap;
 }
 
+/* Encadré de recommandation : plein vert, texte crème. */
+.encadre {
+  background: var(--vert);
+  padding: 28px 32px;
+  margin-top: 36px;
+}
+
+.encadreTexte {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--creme-clair);
+  margin: 0;
+  max-width: 62ch;
+}
+
+.encadreLien {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--creme);
+  text-decoration-color: var(--sur-vert-1);
+  text-underline-offset: 3px;
+}
+
+.encadreLien:hover {
+  color: #fff;
+  text-decoration-color: var(--creme);
+}
+
 .attente {
   border: 1px dashed var(--filet);
   background: var(--creme-clair);

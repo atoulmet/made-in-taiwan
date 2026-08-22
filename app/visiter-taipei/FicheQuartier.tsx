@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { CarteQuartier, type Adresse, type CentreQuartier } from '@/components/CarteQuartier';
 import { PhotoSlot } from '@/components/PhotoSlot';
 import type { Photo } from '@/lib/content';
+import { useSurvol } from './survol';
 import styles from './visiter.module.css';
 
 export type DonneesFiche = {
@@ -17,6 +19,10 @@ export type DonneesFiche = {
   photo: Photo;
   /** Les photos trouvées dans content/photos/<Quartier>/, s'il y en a. */
   photos: string[];
+  /** Où cadrer la carte de la vue agrandie. */
+  centre: CentreQuartier;
+  /** Les adresses du quartier. Elles n'existent que dans la vue agrandie. */
+  adresses: Adresse[];
 };
 
 /**
@@ -32,7 +38,18 @@ function photo(quartier: DonneesFiche, index: number): Photo {
  * Le contenu d'une fiche, écrit une fois pour les deux affichages : replié
  * dans la colonne, déplié dans la modale. `grand` ne change que les tailles.
  */
-function Corps({ quartier, grand }: { quartier: DonneesFiche; grand?: boolean }) {
+function Corps({
+  quartier,
+  grand,
+  texteRef,
+  rogne,
+}: {
+  quartier: DonneesFiche;
+  grand?: boolean;
+  /** Sur la fiche repliée : le bloc de texte, mesuré pour savoir s'il déborde. */
+  texteRef?: React.Ref<HTMLDivElement>;
+  rogne?: boolean;
+}) {
   return (
     <>
       <div className={styles.enteteFiche}>
@@ -46,7 +63,11 @@ function Corps({ quartier, grand }: { quartier: DonneesFiche; grand?: boolean })
         <span className={styles.pastilleMetro}>{quartier.metro}</span>
       </div>
 
-      <div className={styles.texteFiche} dangerouslySetInnerHTML={{ __html: quartier.html }} />
+      <div
+        ref={texteRef}
+        className={`${styles.texteFiche} ${rogne ? styles.texteRogne : ''}`}
+        dangerouslySetInnerHTML={{ __html: quartier.html }}
+      />
 
       {quartier.note ? (
         <div className={styles.note}>
@@ -78,14 +99,16 @@ function Corps({ quartier, grand }: { quartier: DonneesFiche; grand?: boolean })
 export function FicheQuartier({ quartier }: { quartier: DonneesFiche }) {
   const [ouverte, setOuverte] = useState(false);
   const [active, setActive] = useState(0);
+  const { setSurvole } = useSurvol();
   const [deborde, setDeborde] = useState(false);
-  const article = useRef<HTMLDivElement>(null);
+  const texte = useRef<HTMLDivElement>(null);
   const bouton = useRef<HTMLButtonElement>(null);
 
-  // « Voir plus » n'apparaît que si la fiche dépasse vraiment. La mesure se
-  // refait au redimensionnement : la largeur de colonne change la hauteur.
+  // Le dégradé de fin de texte n'apparaît que si le texte est vraiment coupé.
+  // La mesure se refait au redimensionnement : la largeur de colonne change
+  // la hauteur, donc ce qui tient ou non dans les 400 px.
   useEffect(() => {
-    const el = article.current;
+    const el = texte.current;
     if (!el) return;
     const mesurer = () => setDeborde(el.scrollHeight > el.clientHeight + 1);
     mesurer();
@@ -112,24 +135,27 @@ export function FicheQuartier({ quartier }: { quartier: DonneesFiche }) {
 
   return (
     <>
-      <div ref={article} className={styles.fiche}>
+      {/* Le clavier aussi : le focus éclaire la zone comme la souris. */}
+      <div
+        className={styles.fiche}
+        onMouseEnter={() => setSurvole(quartier.name)}
+        onMouseLeave={() => setSurvole(null)}
+        onFocus={() => setSurvole(quartier.name)}
+        onBlur={() => setSurvole(null)}
+      >
         <PhotoSlot photo={photo(quartier, 0)} className={styles.vignetteFiche} />
-        <div>
-          <Corps quartier={quartier} />
-        </div>
+        <div className={styles.corpsFiche}>
+          <Corps quartier={quartier} texteRef={texte} rogne={deborde} />
 
-        {deborde && (
-          <div className={styles.voile}>
-            <button
-              ref={bouton}
-              type="button"
-              className={styles.voirPlus}
-              onClick={() => setOuverte(true)}
-            >
-              Voir plus
-            </button>
-          </div>
-        )}
+          <button
+            ref={bouton}
+            type="button"
+            className={styles.explorer}
+            onClick={() => setOuverte(true)}
+          >
+            Explorer
+          </button>
+        </div>
       </div>
 
       {ouverte && (
@@ -174,8 +200,17 @@ export function FicheQuartier({ quartier }: { quartier: DonneesFiche }) {
                   </div>
                 )}
               </div>
+
               <div className={styles.modaleTexte}>
                 <Corps quartier={quartier} grand />
+              </div>
+
+              <div className={styles.carteModale}>
+                <CarteQuartier
+                  nom={quartier.name}
+                  centre={quartier.centre}
+                  adresses={quartier.adresses}
+                />
               </div>
             </div>
           </div>

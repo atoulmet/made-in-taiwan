@@ -2,6 +2,7 @@ import { PageFooter } from '@/components/PageFooter';
 import { PhotoSlot } from '@/components/PhotoSlot';
 import { SiteHeader } from '@/components/SiteHeader';
 import { type Categorie, type LieuCarte } from '@/components/TaipeiMap';
+import { type Adresse } from '@/components/CarteQuartier';
 import { ColonnesCarte } from './ColonnesCarte';
 import { FicheQuartier } from './FicheQuartier';
 import {
@@ -25,7 +26,7 @@ type DonneesCarte = {
   zoneLat?: number;
   coeur?: boolean;
   libelle?: 'gauche' | 'droite';
-  note: string;
+  note?: string;
 };
 
 /** Les fiches alimentent à la fois la colonne de gauche et la carte. */
@@ -37,7 +38,9 @@ function versLieuCarte(categorie: Categorie) {
       nom: fiche.name as string,
       chinese: fiche.chinese as string,
       ligne: (fiche.metro ?? fiche.trajet) as string,
-      note: carte.note,
+      // La bulle prend la phrase courte de « carte.note » si elle existe,
+      // sinon la note de la fiche : les deux disent la même chose.
+      note: carte.note ?? (fiche.note as string | undefined),
       lng: carte.lng,
       lat: carte.lat,
       rayon: carte.rayon,
@@ -103,6 +106,12 @@ export default function VisiterTaipei() {
               maps: quartier.maps as string | undefined,
               photo: quartier.photo as Photo,
               photos: photosDe(quartier, albums),
+              centre: {
+                lng: (quartier.carte as DonneesCarte).lng,
+                lat: (quartier.carte as DonneesCarte).lat,
+                rayon: (quartier.carte as DonneesCarte).rayon,
+              },
+              adresses: (quartier.adresses ?? []) as Adresse[],
             }}
           />
         ))}

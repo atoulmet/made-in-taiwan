@@ -105,3 +105,25 @@
   border-radius: 0;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
+
+/* Adresses d'un quartier, dans la vue agrandie : au rouge brique, pour ne pas
+   se confondre avec les points de la carte de la page. */
+.adresse .point {
+  width: 8px;
+  height: 8px;
+  background: var(--brique);
+}
+
+.adresse .libelle {
+  color: var(--brique);
+  font-size: 9px;
+}
+
+/* Le cadre de la carte dans la modale : c'est lui qui porte la hauteur, la
+   carte elle-même étant en position absolue. */
+.cadreQuartier {
+  position: relative;
+  height: 100%;
+  border: 1px solid var(--filet);
+  background: var(--creme);
+}

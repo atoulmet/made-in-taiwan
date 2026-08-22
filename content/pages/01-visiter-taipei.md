@@ -17,7 +17,7 @@ carte:
   badge: La carte · 地圖
   titre: Carte de mes adresses à Taipei
 escapades:
-  label: un peu autour
+  label: Escapades à la journée
   chinese: 郊外
 ---
 

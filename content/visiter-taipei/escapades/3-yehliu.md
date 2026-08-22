@@ -10,7 +10,7 @@ carte:
   lat: 25.2065
   rayon: 700
   libelle: droite
-  note: "Les rochers sculptés par la mer, sur la côte nord."
+  note: "Les formations rocheuses les plus surprenantes de Taïwan"
 ---
 
-Un cap de grès que la mer a sculpté en champignons et en alvéoles. Une heure suffit sur place ; le reste de la journée se passe à Keelung ou sur la côte nord.
+Une petite balade où observer de curieuses érosions rocheuses. Rien que pour longer la mer et observer les rochers, ça vaut la peine du déplacement.

@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from 'react';
 import { TaipeiMap, type Filtres, type LieuCarte } from '@/components/TaipeiMap';
+import { Survol } from './survol';
 import styles from './visiter.module.css';
 
 /** L'ordre des étiquettes, et le mot affiché pour chaque famille de points. */
@@ -27,17 +28,20 @@ type Props = {
  * partager alors qu'elles vivent dans deux colonnes différentes.
  */
 export function ColonnesCarte({ lieux, labelQuartiers, badge, titre, children }: Props) {
+  const [survole, setSurvole] = useState<string | null>(null);
   const [filtres, setFiltres] = useState<Filtres>({
     quartier: true,
     lieu: true,
     marche: true,
+    metro: true,
   });
 
   const basculer = (cle: keyof Filtres) =>
     setFiltres((actuels) => ({ ...actuels, [cle]: !actuels[cle] }));
 
   return (
-    <div className={styles.deuxColonnes}>
+    <Survol.Provider value={{ survole, setSurvole }}>
+      <div className={styles.deuxColonnes}>
       <div className={styles.colonneFiches}>
         <div className={styles.etiquettes}>
           {ETIQUETTES.map(({ cle, label }) => (
@@ -64,10 +68,22 @@ export function ColonnesCarte({ lieux, labelQuartiers, badge, titre, children }:
 
       <div className={styles.colonneCarte}>
         <div className={styles.cadreCarte} title={titre}>
-          <TaipeiMap lieux={lieux} filtres={filtres} />
+          <TaipeiMap lieux={lieux} filtres={filtres} survole={survole} />
         </div>
         <div className={styles.badgeCarte}>{badge}</div>
+
+        {/* Le métro se commande depuis la carte, pas depuis la colonne. */}
+        <button
+          type="button"
+          onClick={() => basculer('metro')}
+          aria-pressed={filtres.metro}
+          className={`${styles.bascule} ${filtres.metro ? styles.basculeActive : ''}`}
+        >
+          <span className={styles.puceMetro} aria-hidden="true" />
+          Métro
+        </button>
       </div>
-    </div>
+      </div>
+    </Survol.Provider>
   );
 }

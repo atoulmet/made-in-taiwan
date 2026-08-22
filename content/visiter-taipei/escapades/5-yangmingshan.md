@@ -10,7 +10,7 @@ carte:
   lat: 25.156
   rayon: 1600
   libelle: droite
-  note: "Le parc national au-dessus de la ville : soufrières et sentiers."
+  note: "Attention à bien planifier son itinéraire"
 ---
 
-Le parc national qui domine Taipei : soufrières fumantes, prairies, sentiers de crête et azalées en février. Le bus part de la gare principale, on y est en trois quarts d'heure.
+De superbes randonnées accessibles directement depuis Taipei. Alors attention à bien se renseigner au préalable sur quelle randonnée faire, à bien télécharger le tracé GPS pour ne pas se perdre, et à identifier comment y aller et comment revenir. Ça m'est déjà arrivé de devoir faire du stop pour rentrer. On s'entend : à Taïwan, ça reste hyper safe, et ça fait partie de l'aventure. Mais c'est le genre de chose qu'on aime bien anticiper pour s'éviter quelques tracas.

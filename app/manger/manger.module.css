@@ -1,0 +1,315 @@
+/* Intro ------------------------------------------------------------------- */
+
+.intro {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 44px var(--marge) 0;
+}
+
+.grilleIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: end;
+  border-bottom: 3px solid var(--rouge);
+  padding-bottom: 22px;
+}
+
+.titrePage {
+  font-family: var(--titre);
+  font-size: 60px;
+  line-height: 1.05;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.chinoisPage {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 34px;
+  letter-spacing: 0.08em;
+  color: var(--vert);
+  white-space: nowrap;
+}
+
+/* Encadré de recommandation ----------------------------------------------- */
+
+.encadre {
+  background: var(--vert);
+  padding: 28px 32px;
+  margin-top: 36px;
+}
+
+.encadreTexte {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--creme-clair);
+  margin: 0;
+  max-width: 62ch;
+}
+
+.encadreLien {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--creme);
+  text-underline-offset: 3px;
+  text-decoration-color: var(--sur-vert-1);
+}
+
+.encadreLien:hover {
+  color: #fff;
+  text-decoration-color: var(--creme);
+}
+
+/* Sections ---------------------------------------------------------------- */
+
+.section {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 52px var(--marge) 0;
+}
+
+.enteteSection {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.labelSection {
+  font-family: var(--titre);
+  font-size: 30px;
+  line-height: 1;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.trait {
+  flex: 1;
+  height: 1px;
+  background: var(--filet);
+}
+
+.chinoisSection {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--vert);
+  white-space: nowrap;
+}
+
+.introSection {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--texte-2);
+  margin: 14px 0 0;
+  max-width: 62ch;
+}
+
+/* Fiche de plat ----------------------------------------------------------- */
+
+.grillePlats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.plat {
+  border: 1px solid var(--filet);
+  background: var(--creme-clair);
+  display: flex;
+  flex-direction: column;
+}
+
+.vignette {
+  height: 180px;
+  border-width: 0 0 1px;
+}
+
+.corps {
+  padding: 16px 18px 20px;
+}
+
+.entete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nom {
+  font-family: var(--titre);
+  font-size: 26px;
+  line-height: 1.05;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Le moment de la journée, en micro-caps comme les pastilles de métro. */
+.moment {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rouge);
+  white-space: nowrap;
+}
+
+.ligneChinois {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.chinois {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--vert);
+}
+
+/* La prononciation : c'est elle qu'on lit à voix haute au comptoir. */
+.pinyin {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--texte-2);
+}
+
+.texte p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--texte);
+  margin: 12px 0 0;
+}
+
+/* Bubble tea : sa propre section, pleine largeur et à fond vert ------------ */
+
+.bubble {
+  background: var(--vert);
+  margin-top: 64px;
+  padding: 52px 0 56px;
+}
+
+.bubbleDedans {
+  max-width: var(--contenu);
+  margin: 0 auto;
+  padding: 0 var(--marge);
+}
+
+.bubbleEntete {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(246, 243, 232, 0.3);
+  padding-bottom: 18px;
+}
+
+.bubbleTitre {
+  font-family: var(--titre);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--creme-clair);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.bubbleChinois {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  color: var(--sur-vert-3);
+}
+
+.bubblePinyin {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--sur-vert-1);
+}
+
+.bubbleIntro {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--creme-clair);
+  margin: 20px 0 0;
+  max-width: 62ch;
+}
+
+.grillePerles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.perle {
+  background: var(--creme-clair);
+  border: 1px solid var(--sur-vert-1);
+  padding: 16px 18px 20px;
+}
+
+.vignettePerle {
+  height: 140px;
+  margin: -16px -18px 14px;
+  border-width: 0 0 1px;
+}
+
+.perleNom {
+  font-family: var(--titre);
+  font-size: 22px;
+  line-height: 1.05;
+  color: var(--encre);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.perleChinois {
+  font-family: var(--chinois);
+  font-weight: 900;
+  font-size: 19px;
+  letter-spacing: 0.08em;
+  color: var(--vert);
+}
+
+.perlePinyin {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--texte-2);
+}
+
+.perleTexte p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--texte);
+  margin: 10px 0 0;
+}
+
+@media (max-width: 720px) {
+  .titrePage {
+    font-size: 42px;
+  }
+
+  .grilleIntro {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .bubbleTitre {
+    font-size: 32px;
+  }
+}

@@ -10,7 +10,7 @@ carte:
   lat: 24.8641
   rayon: 800
   libelle: gauche
-  note: "Village atayal, sources chaudes et cascade, au sud."
+  note: "Sources chaudes, eau turquoise et montagne"
 ---
 
-Un village atayal dans la montagne au sud de Taipei : sources chaudes en bord de rivière, une cascade, un petit train de mine. Le plus proche de la ville, faisable en demi-journée.
+Le charme de ce lieu est incroyable : sources thermales, des cascades, le lieu est juste magique. On a l'impression de se perdre dans la jungle et d'atterrir dans une petite bulle qui en vaut le détour ! Pour ma part, j'en avais profité pour découvrir un des seuls Relais Chateaux de Taïwan, craquage total !

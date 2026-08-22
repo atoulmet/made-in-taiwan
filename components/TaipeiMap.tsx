@@ -2,12 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
+import { ajouterMetro, montrerMetro } from './metro';
 import styles from './TaipeiMap.module.css';
 
 /** Le SDK arrive par import dynamique : on ne type ici que ce qu'on appelle. */
 type CarteMLGL = {
   remove: () => void;
   setFilter: (couche: string, filtre: unknown) => void;
+  getLayer: (couche: string) => unknown;
+  setPaintProperty: (couche: string, propriete: string, valeur: unknown) => void;
 };
 type MarqueurMLGL = { addTo: (carte: CarteMLGL) => void; remove: () => void };
 
@@ -16,16 +19,18 @@ export type Categorie = 'quartier' | 'lieu' | 'marche';
 
 export const CATEGORIES: Categorie[] = ['quartier', 'lieu', 'marche'];
 
-export type Filtres = Record<Categorie, boolean>;
+/** Les trois familles de points, plus le métro — qui n'est pas une famille de
+ *  points mais s'allume et s'éteint de la même façon. */
+export type Filtres = Record<Categorie, boolean> & { metro: boolean };
 
 export type LieuCarte = {
   categorie: Categorie;
   nom: string;
-  chinese: string;
+  chinese?: string;
   /** Ligne de métro ou temps de trajet, en micro-caps dans la popup. */
-  ligne: string;
-  /** La phrase de la popup. */
-  note: string;
+  ligne?: string;
+  /** La phrase de la bulle. À défaut, la note de la fiche prend le relais. */
+  note?: string;
   lng: number;
   lat: number;
   /** Rayon de la zone, en mètres. Les marchés de nuit n'en ont pas : un point. */
@@ -44,7 +49,7 @@ export type LieuCarte = {
  * Ce sont des zones d'ambiance, pas des limites administratives : Dadaocheng
  * et Maokong n'ont d'ailleurs pas de frontière officielle.
  */
-function zone(lng: number, lat: number, metres: number): [number, number][] {
+export function zone(lng: number, lat: number, metres: number): [number, number][] {
   const points: [number, number][] = [];
   const dLat = metres / 111320;
   const dLng = metres / (111320 * Math.cos((lat * Math.PI) / 180));
@@ -60,10 +65,14 @@ function zone(lng: number, lat: number, metres: number): [number, number][] {
  * moment de l'appel : le SDK ne la pose pas sur l'URL du style lui-même, et
  * sans elle api.maptiler.com répond 403 — la carte n'atteint jamais « load ».
  */
-const STYLE = 'https://api.maptiler.com/maps/01a01f74-0421-7f9d-a971-302ce6ecaf48/style.json';
+export const STYLE = 'https://api.maptiler.com/maps/01a01f74-0421-7f9d-a971-302ce6ecaf48/style.json';
 
-function echapper(texte: string) {
-  return texte.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+/**
+ * Échappe un texte pour la bulle. Tolère l'absence : un champ optionnel non
+ * renseigné dans le Markdown ne doit pas faire tomber la carte entière.
+ */
+export function echapper(texte?: string) {
+  return (texte ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 /**
@@ -75,6 +84,8 @@ function appliquerFiltres(
   filtres: Filtres,
   marqueurs: Record<Categorie, MarqueurMLGL[]>,
 ) {
+  montrerMetro(carte as never, filtres.metro);
+
   const visibles = CATEGORIES.filter((categorie) => filtres[categorie]);
   for (const couche of ['quartiers-fond', 'quartiers-trait']) {
     carte.setFilter(couche, ['in', ['get', 'categorie'], ['literal', visibles]]);
@@ -88,10 +99,31 @@ function appliquerFiltres(
 }
 
 /**
+ * Éclaire la zone du quartier survolé : fond plus dense, contour à la brique
+ * et plus épais. Une expression suffit, pas besoin d'une source à part.
+ */
+function appliquerSurvol(carte: CarteMLGL, survole: string | null | undefined) {
+  if (!carte.getLayer('quartiers-fond')) return;
+  const estSurvole = ['==', ['get', 'nom'], survole ?? ''];
+  carte.setPaintProperty('quartiers-fond', 'fill-opacity', ['case', estSurvole, 0.3, 0.1]);
+  carte.setPaintProperty('quartiers-trait', 'line-color', ['case', estSurvole, '#C1512A', '#04492C']);
+  carte.setPaintProperty('quartiers-trait', 'line-width', ['case', estSurvole, 2.8, 1.6]);
+}
+
+/**
  * La carte des adresses. Seul îlot interactif du site : chargée côté client,
  * avec le SDK MapTiler (style BASIC, libellés latins).
  */
-export function TaipeiMap({ lieux, filtres }: { lieux: LieuCarte[]; filtres: Filtres }) {
+export function TaipeiMap({
+  lieux,
+  filtres,
+  survole,
+}: {
+  lieux: LieuCarte[];
+  filtres: Filtres;
+  /** Le nom du quartier survolé dans la colonne, ou null. */
+  survole?: string | null;
+}) {
   const conteneur = useRef<HTMLDivElement>(null);
   const cle = process.env.NEXT_PUBLIC_MAPTILER_KEY;
   const [echec, setEchec] = useState(false);
@@ -106,6 +138,8 @@ export function TaipeiMap({ lieux, filtres }: { lieux: LieuCarte[]; filtres: Fil
   });
   const filtresRef = useRef(filtres);
   filtresRef.current = filtres;
+  const survoleRef = useRef(survole);
+  survoleRef.current = survole;
 
   useEffect(() => {
     if (!conteneur.current || !cle) return;
@@ -146,6 +180,8 @@ export function TaipeiMap({ lieux, filtres }: { lieux: LieuCarte[]; filtres: Fil
       map.on('load', () => {
         clearTimeout(minuteur);
         setEchec(false);
+
+        ajouterMetro(map);
 
         map.addSource('quartiers', {
           type: 'geojson',
@@ -201,9 +237,13 @@ export function TaipeiMap({ lieux, filtres }: { lieux: LieuCarte[]; filtres: Fil
             .setPopup(
               new sdk.Popup({ offset: 16, maxWidth: '280px' }).setHTML(
                 `<div class="${styles.popupTitre}">${echapper(lieu.nom)}</div>` +
-                  `<div class="${styles.popupChinois}">${echapper(lieu.chinese)}</div>` +
-                  `<div class="${styles.popupLigne}">${echapper(lieu.ligne)}</div>` +
-                  `<div class="${styles.popupNote}">${echapper(lieu.note)}</div>`,
+                  (lieu.chinese
+                    ? `<div class="${styles.popupChinois}">${echapper(lieu.chinese)}</div>`
+                    : '') +
+                  (lieu.ligne
+                    ? `<div class="${styles.popupLigne}">${echapper(lieu.ligne)}</div>`
+                    : '') +
+                  (lieu.note ? `<div class="${styles.popupNote}">${echapper(lieu.note)}</div>` : ''),
               ),
             );
           marqueursRef.current[lieu.categorie].push(marqueur as unknown as MarqueurMLGL);
@@ -216,6 +256,8 @@ export function TaipeiMap({ lieux, filtres }: { lieux: LieuCarte[]; filtres: Fil
 
         carteRef.current = map as unknown as CarteMLGL;
         appliquerFiltres(map as unknown as CarteMLGL, filtresRef.current, marqueursRef.current);
+        // Une fiche peut avoir été survolée pendant que la carte chargeait.
+        appliquerSurvol(map as unknown as CarteMLGL, survoleRef.current);
       });
     })();
 
@@ -226,6 +268,11 @@ export function TaipeiMap({ lieux, filtres }: { lieux: LieuCarte[]; filtres: Fil
       carte?.remove();
     };
   }, [lieux, cle]);
+
+  // Le survol d'une fiche éclaire sa zone.
+  useEffect(() => {
+    if (carteRef.current) appliquerSurvol(carteRef.current, survole);
+  }, [survole]);
 
   // Les étiquettes ne touchent qu'à la visibilité, la carte reste en place.
   useEffect(() => {

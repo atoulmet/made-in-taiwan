@@ -12,7 +12,7 @@ carte:
   lat: 25.1373
   rayon: 1100
   libelle: droite
-  note: Sources chaudes dans la ville, vallée de vapeur, bains publics.
+  note: Les sources chaudes dans la ville
 ---
 
-Toujours Taipei, au bout d'une navette depuis la ligne rouge : sources chaudes en pleine ville, vallée de vapeur qui sent le soufre, bains publics et bibliothèque en bois. Idéal un jour de pluie.
+Pour les fans de bains publics, vous serez gâtés à Beitou. L'odeur de soufre si particulière vous accompagnera tout au long de la balade. C'est aussi l'occasion de faire un petit détour par la bibliothèque municipale intégralement en bois.

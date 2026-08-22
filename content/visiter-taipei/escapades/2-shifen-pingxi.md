@@ -10,7 +10,7 @@ carte:
   lat: 25.0413
   rayon: 900
   libelle: gauche
-  note: "La ligne de Pingxi, les lanternes et la cascade."
+  note: "Bon, ça fait un peu touristique, mais c'est sympa"
 ---
 
-La petite ligne de Pingxi remonte la vallée : à Shifen, les lanternes qu'on lâche depuis la voie ferrée et la cascade à vingt minutes à pied. Se combine avec Jiufen dans la même journée.
+La petite ville de Pingxi est traversée par une voie ferrée. On s'y rend pour faire un lâcher de lanterne. Superbe à voir de nuit. C'est aussi l'occasion de marcher jusqu'à la cascade en une vingtaine de minutes. Il est tout à fait possible de combiner cette sortie avec Jiufen dans la même journée.

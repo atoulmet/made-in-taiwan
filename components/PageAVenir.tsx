@@ -3,6 +3,12 @@ import { SiteHeader } from './SiteHeader';
 import { lirePage, lirePages, voisines } from '@/lib/content';
 import styles from './PageAVenir.module.css';
 
+/** Un encadré de recommandation, renseigné dans l'en-tête de la page. */
+type Encadre = {
+  texte: string;
+  lien?: { url: string; label: string };
+};
+
 /**
  * Gabarit des pages dont le contenu n'est pas encore écrit : l'en-tête, le
  * titre et le pied de page sont en place, le corps annonce clairement qu'il
@@ -12,6 +18,7 @@ export function PageAVenir({ slug }: { slug: string }) {
   const page = lirePage(slug);
   const pages = lirePages();
   const { avant, apres } = voisines(slug);
+  const encadre = page.encadre as Encadre | undefined;
 
   return (
     <>
@@ -22,6 +29,23 @@ export function PageAVenir({ slug }: { slug: string }) {
           <h1 className={styles.titrePage}>{page.title}</h1>
           <div className={styles.chinoisPage}>{page.chinese}</div>
         </div>
+
+        {/* Une page peut déjà porter une recommandation, même sans corps. */}
+        {encadre && (
+          <div className={styles.encadre}>
+            <p className={styles.encadreTexte}>{encadre.texte}</p>
+            {encadre.lien && (
+              <a
+                className={styles.encadreLien}
+                href={encadre.lien.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                ↗ {encadre.lien.label}
+              </a>
+            )}
+          </div>
+        )}
 
         <div className={styles.attente}>
           <div className={styles.label}>Page à venir</div>

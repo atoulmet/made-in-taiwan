@@ -2,6 +2,7 @@
 name: Gongguan
 chinese: 公館
 metro: Ligne verte · Gongguan
+note: "Il vaut mieux y venir en fin d'après-midi pour profiter de la vie du quartier"
 maps: https://www.google.com/maps/search/?api=1&query=Gongguan+Taipei
 photo:
   src: ""
@@ -12,7 +13,6 @@ carte:
   rayon: 800
   coeur: true
   libelle: gauche
-  note: "Le quartier étudiant : librairies, petits restaurants, la rivière au bout."
 ---
 
-Le quartier de l'université : librairies d'occasion, petits restaurants ouverts tard, et la piste cyclable le long de la rivière au bout de la rue. On y mange pour trois fois rien.
+C'est le quartier de la plus gros université du pays NTU. Évidemment, on y trouve tout ce dont les étudiants raffolent : des bubble teas, des boutiques de vêtements petit budget, un des plus grands marchés de nuit de Taipei.

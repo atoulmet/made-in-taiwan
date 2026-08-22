@@ -89,10 +89,49 @@
   display: grid;
   grid-template-columns: 112px minmax(0, 1fr);
   gap: 16px;
-  /* Toutes les fiches s'arrêtent là. Au-delà, FicheQuartier mesure le
-     débordement et affiche « voir plus », qui ouvre la fiche en plein écran. */
+  /* Toutes les fiches s'arrêtent là. */
   max-height: 400px;
   overflow: hidden;
+}
+
+/* La fiche se souligne aussi de son côté : sans ça, rien ne dit que c'est
+   elle qui éclaire la zone sur la carte. */
+.fiche:hover,
+.fiche:focus-within {
+  border-color: var(--brique);
+}
+
+/* La colonne de droite : tout garde sa taille, seul le texte détaillé cède.
+   16 px de marge en haut et en bas dans la fiche, d'où les 368. */
+.corpsFiche {
+  display: flex;
+  flex-direction: column;
+  max-height: 368px;
+  min-height: 0;
+}
+
+.corpsFiche > * {
+  flex: none;
+}
+
+/* Le seul élément élastique. La note, le métro et le lien restent entiers. */
+.corpsFiche .texteFiche {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Le dégradé n'est posé que si le texte est réellement coupé. */
+.texteRogne::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42px;
+  background: linear-gradient(to bottom, rgba(251, 249, 241, 0), var(--creme-clair));
+  pointer-events: none;
 }
 
 .vignetteFiche {
@@ -436,23 +475,12 @@
   border-color: var(--rouge);
 }
 
-/* Fiche repliée : voile et bouton ---------------------------------------- */
 
-/* Le dégradé mange les dernières lignes plutôt que de les couper net. */
-.voile {
-  position: absolute;
-  left: 1px;
-  right: 1px;
-  bottom: 1px;
-  padding: 40px 16px 14px;
-  display: flex;
-  justify-content: flex-end;
-  background: linear-gradient(to bottom, rgba(251, 249, 241, 0), var(--creme-clair) 60%);
-  pointer-events: none;
-}
+/* Fiche repliée : le bouton d'ouverture ------------------------------------ */
 
-.voirPlus {
-  pointer-events: auto;
+.explorer {
+  align-self: flex-start;
+  margin-top: 12px;
   font-family: inherit;
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -465,7 +493,7 @@
   cursor: pointer;
 }
 
-.voirPlus:hover {
+.explorer:hover {
   background: var(--vert);
   color: var(--creme);
 }
@@ -518,9 +546,9 @@
   align-items: start;
 }
 
+/* Photos puis carte : la colonne défile avec le reste de la modale. */
 .galerie {
-  position: sticky;
-  top: 0;
+  display: block;
 }
 
 .photoModale {
@@ -563,7 +591,14 @@
 }
 
 .modaleTexte {
-  padding-bottom: 40px;
+  padding-bottom: 8px;
+}
+
+/* La carte tient toute la largeur de la modale, sous les deux colonnes. */
+.carteModale {
+  grid-column: 1 / -1;
+  height: 420px;
+  margin-bottom: 40px;
 }
 
 .nomFicheGrand {
@@ -600,15 +635,62 @@
     gap: 24px;
   }
 
-  .galerie {
-    position: static;
-  }
-
   .photoModale {
     height: 40vh;
+  }
+
+  .carteModale {
+    height: 320px;
   }
 
   .nomFicheGrand {
     font-size: 38px;
   }
+}
+
+/* Interrupteur posé sur la carte, sous le badge ---------------------------- */
+
+.bascule {
+  position: absolute;
+  top: 58px;
+  left: 18px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--texte-2);
+  background: var(--creme);
+  border: 1px solid var(--filet);
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.bascule:hover {
+  border-color: var(--vert);
+  color: var(--texte);
+}
+
+.basculeActive {
+  background: var(--creme-clair);
+  border-color: var(--vert);
+  color: var(--vert);
+  font-weight: 700;
+}
+
+/* Un trait au bleu de la ligne Bannan, creux quand le métro est masqué. */
+.puceMetro {
+  width: 12px;
+  height: 3px;
+  flex: none;
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
+.basculeActive .puceMetro {
+  background: #007ec7;
+  border-color: #007ec7;
 }
